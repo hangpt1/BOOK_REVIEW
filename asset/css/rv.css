@@ -1,0 +1,134 @@
+* {
+    font-family: "Roboto", sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --main_color: rgba(255, 224, 178, 0.8); 
+    --main_title_color: #6F9E4D; 
+    --sub_title_color: #FFB300; 
+    --white_color: #fff; 
+    --black_color: #000; 
+    --gray_color: rgb(219, 226, 227); 
+    --button_color: #6F9E4D; 
+}
+
+body {
+    background-image: url("https://thuthuatnhanh.com/wp-content/uploads/2022/06/Background-hoc-tap.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+.box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 150vh; 
+}
+
+.container {
+    width: 600px;
+    padding: 30px; 
+    background: var(--main_color); 
+    box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.2); 
+    display: flex;
+    flex-direction: column;
+    border-radius: 20px; 
+}
+
+.top-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+header {
+    color: var(--main_title_color); 
+    font-size: 32px; 
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+.input-field {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+.input {
+    height: 45px;
+    width: 100%;
+    border: none;
+    outline: none;
+    border-radius: 10px;
+    color: var(--black_color); 
+    padding: 0 10px;
+    background: #f9f5ef; 
+    font-size: 14px;
+    transition: border 0.3s, box-shadow 0.3s; 
+    text-align: left;
+}
+
+.input:focus {
+    border: 2px solid var(--button_color); 
+    box-shadow: 0 0 5px var(--button_color); 
+}
+
+textarea.input {
+    height: auto; 
+    min-height: 200px; 
+    padding: 10px; 
+    overflow: auto; 
+    resize: none; 
+    width: 100%; 
+}
+
+
+label {
+    color: var(--main_title_color);
+    margin-bottom: 5px;
+    font-weight: bold; 
+}
+
+.submit {
+    border: none;
+    border-radius: 10px;
+    font-size: 15px;
+    height: 45px;
+    outline: none;
+    width: 100%;
+    background: var(--button_color);
+    color: var(--white_color);
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.submit:hover {
+    box-shadow: 1px 5px 10px rgba(0, 0, 0, 0.2);
+    background: #5D853E; /* Màu hover cho nút */
+}
+
+.rating {
+    margin-top: 10px;
+}
+
+select {
+    width: 100%;
+    height: 45px; 
+    border-radius: 10px;
+    border: none;
+    padding-left: 10px;
+    background: var(--white_color); 
+    transition: border 0.3s; 
+}
+
+select:focus {
+    outline: none;
+    border: 2px solid var(--button_color); 
+}

@@ -1,0 +1,266 @@
+/* Existing CSS */
+* {
+    box-sizing: border-box;
+}
+
+:root {
+    --main_color: rgba(255, 224, 178, 0.8); 
+    --main_title_color: #6F9E4D; 
+    --sub_title_color: #FFB300; 
+    --white_color: #fff;
+    --black_color: #000;
+    --gray_color: rgb(219, 226, 227);
+    --button_color: #6F9E4D; 
+}
+
+body {
+    font-family: "Roboto", sans-serif;
+    background-image: url("https://thuthuatnhanh.com/wp-content/uploads/2022/06/Background-hoc-tap.jpg");
+    background-size: cover; 
+    background-repeat: no-repeat; 
+    background-position: center; 
+    background-attachment: fixed; 
+    margin: 0;
+    padding: 20px;
+}
+
+/* Page Banner Section - Full Width */
+.page-banner-section {
+    background-color: var(--main_title_color);
+    padding: 60px 0;
+    text-align: center;
+    width: 100vw; 
+    margin: 0; 
+    position: relative;
+    left: 50%; 
+    transform: translateX(-50%); 
+}
+
+.page-banner-section h1 {
+    font-size: 36px;
+    color: var(--white_color); 
+    margin-bottom: 10px;
+}
+
+.page-breadcrumb {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    padding: 0;
+}
+
+.page-breadcrumb li {
+    color: var(--white_color);
+    font-size: 16px;
+    margin: 0 6px;
+    position: relative;
+}
+
+.page-breadcrumb li a {
+    color: var(--white_color);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.page-breadcrumb li a:hover {
+    color: var(--sub_title_color);
+}
+
+.page-breadcrumb li::after {
+    content: '/';
+    color: var(--white_color);
+    margin-left: 10px;
+}
+
+.page-breadcrumb li:last-child::after {
+    content: '';
+    margin-left: 0;
+}
+/*user-info*/
+.user-info {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px; 
+    margin-top: 5px; 
+}
+
+.user-info img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 10px;
+    object-fit: cover;
+}
+
+.user-details {
+    display: flex;
+    flex-direction: column;
+}
+
+.user-name {
+    font-weight: bold;
+    color: var(--main_title_color);
+}
+
+.user-info-detail {
+    font-size: 12px;
+    color: #888;
+}
+
+/* Review Detail Container */
+.review-detail-container {
+    background: rgba(255, 255, 255, 0.9); 
+    border-radius: 8px; 
+    padding: 20px; 
+    max-width: 800px; 
+    margin: 20px auto; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+    border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.review-detail-container h2 {
+    color: var(--main_title_color); 
+    margin-bottom: 15px; 
+    font-size: 24px; 
+    text-align: center; 
+}
+
+.review-detail-container p {
+    color: var(--black_color); 
+    font-size: 16px; 
+    line-height: 1.6; 
+    margin-bottom: 15px; 
+}
+
+.video-review h3 {
+    margin-top: 20px;
+    color: var(--main_title_color); 
+    font-size: 20px; 
+}
+
+.video-container h3 {
+    margin-top: 20px;
+    color: var(--main_title_color);
+    font-size: 20px;
+    font-weight: bold;
+}
+
+
+.review-detail-container video {
+    width: 100%; 
+    border-radius: 8px; 
+    max-width: 600px; 
+}
+
+.detail-header {
+    background-color: #6F9E4D; 
+    color: white; 
+    padding: 10px 0; 
+    border-radius: 0; 
+    text-align: center; 
+    margin: 0; 
+    width: 100%; 
+    position: relative; 
+    left: 0; 
+    transform: none; 
+}
+
+.review-header {
+    display: flex;
+    margin-bottom: 20px;
+}
+
+.image-container {
+    flex: 1;
+    margin-right: 20px;
+    max-width: 150px; 
+    flex-shrink: 0; 
+}
+
+.image-container img {
+    width: 150px; 
+    height: 220px; 
+    object-fit: cover; 
+    border-radius: 8px; 
+}
+
+.info-container {
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; 
+    background-color: rgb(237, 245, 246); 
+    color: black; 
+    padding: 10px;
+    border-radius: 8px;
+    text-align: left; 
+}
+
+.info-container h2 {
+    font-size: 20px;
+    margin: 0;
+}
+
+.info-container p {
+    margin-right: auto;
+    padding: 2px;
+}
+
+.review-content {
+    margin-top: 20px;
+}
+
+.review-content h2 {
+    font-size: 20px;
+}
+
+.video-container {
+    margin-top: 20px;
+}
+
+.comments-section {
+    margin-top: 30px;
+}
+
+.comments-section h2 {
+    text-align: left; 
+    font-size: 20px;  
+    color: var(--main_title_color); 
+}
+
+.comments-section p {
+    font-size: 15px;  
+    color:  #888; 
+}
+
+.comments-list {
+    margin-top: 10px;
+}
+
+.comment {
+    border-top: 1px solid #ccc; 
+    padding: 10px 0;
+}
+
+.input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc; 
+    border-radius: 4px;
+    margin-bottom: 10px;
+    resize: none;
+    min-height: 100px; 
+}
+
+.submit {
+    background-color: #6F9E4D; 
+    color: white; 
+    border: none;
+    padding: 10px;
+    border-radius: 4px;
+    cursor: pointer; 
+}
+
+.submit:hover {
+    background-color: #5D853E; 
+}

@@ -1,0 +1,362 @@
+
+@media only screen and (max-width: 700px) {
+  div{
+      padding:1px;
+  }
+  .col-sm-1{
+  width: 8.33%;
+  }
+  .col-sm-2{
+      width: 16.66%;
+  }
+  .col-sm-3{
+      width: 25%;
+  }
+  .col-sm-4{
+      width: 33.33%;
+  }
+  .col-sm-5{
+      width: 41.66%;
+  }
+  .col-sm-6{
+      width: 50%;
+  }
+  
+  .col-sm-7{
+      width: 58.33%;
+  }
+  .col-sm-8{
+      width: 66.66%;
+  }
+  .col-sm-9{
+      width: 75%;
+  }
+  
+  .col-sm-10{
+      width: 83.33%;
+  }
+  .col-sm-11{
+      width: 91.66%;
+  }
+  .col-sm-12{
+      width: 100%;
+  }                   
+}
+
+
+
+/* cấu hinh chung  */
+:root{
+  --main_color:#FFF2D7;
+  --main_title_color:#5D853E;
+  --sub_title_title_color:#CE7B01;
+  --white_color :#fff;
+  --black_color : #000;
+  --gray_color: rgb(219, 226, 227);
+
+  
+}
+*{box-sizing: inherit;}
+html{
+  font-size: 62.5%;
+  line-height: 1.6rem;
+  font-family: "Roboto", sans-serif;
+  box-sizing: border-box;
+}
+/* responsive dễ hơn */
+.grid{
+  width: 100%;
+  max-width: 100%;
+  
+}
+.grid__full-width{
+  width: 100%;
+  
+}
+.grid_row{
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 -12px;
+  padding: 0;
+  
+}
+.grid__column_2{
+  padding-left: 12px;
+  width: 16.6667%;
+  min-height: 85vh;
+}
+.grid__column_10{
+  background: url('');
+  background-attachment: fixed;
+  padding-left: 12px;
+  padding-right: 12px;
+  width: 83.3334%;
+  padding-bottom: 10px;
+  
+}
+
+body{
+  font:13px/1.231 arial,helvetica,clean,sans-serif; /* YUI Font Reset */
+  font-size:small;    
+  font:x-small;        
+  height: 100%;
+  background-color: var(--main_color);  
+  color: var(--black_color);       
+  line-height: 1.4;   
+}
+
+select,input,button,textarea,button {
+  font:99% arial,helvetica,clean,sans-serif;
+}
+
+table {
+  font-size:inherit;
+  font:100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+pre,code,kbd,samp,tt {
+  font-family:monospace;
+  font-size:108%;
+  line-height:100%;
+}
+
+h1 {
+	font-size:138.5%;
+}
+
+h2 {
+	font-size:123.1%;
+}
+
+h3 {
+	font-size:108%;
+}
+
+body, p, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, legend, input, button, textarea, blockquote, th, td {
+  margin: 0;
+  padding: 0;
+}
+
+h1,h2,h3,h4,h5,h6,p,blockquote,ul,ol,dl {
+	/* top & bottom margin based on font size */
+	margin:1em 0;
+}
+
+h1,h2,h3,h4,h5,h6,strong,th,dt,b {
+	/*bringing boldness back to headers and the strong element*/
+	font-weight:bold;
+}
+
+abbr,acronym {
+	/*indicating to users that more info is available */
+	border-bottom:1px dotted #000;
+	cursor:help;
+}
+
+em,blockquote, q, em, cite, dfn, i, cite, var, address {
+	/*bringing italics back */
+	font-style:italic;
+}
+
+ol,ul,dl {
+	/*bringing lists on to the page with breathing room */
+	margin-left:2em;
+}
+
+ol li {
+	/*giving OL's LIs generated numbers*/
+	list-style: decimal outside;
+}
+
+ul li {
+	/*giving UL's LIs generated disc markers*/
+	list-style: disc outside;
+}
+
+dl dd {
+	/*giving UL's LIs generated numbers*/
+	margin-left:1em;
+}
+
+th,td {
+	/*borders and padding to make the table readable*/
+	border:1px solid #000;
+	padding:.5em;
+}
+
+/* all th should be centered unless they are in tbody (table body) */
+th {
+	/*distinguishing table headers from data cells*/
+	text-align:center;
+}
+
+tbody th {text-align: left;}
+
+/* caption and summary are very important for tabular data but because caption is nearly impossible to style across browsers many authors do not use it or use display:none to "hide" it (which is almost the same as not using it).
+ * so to prevent such workaround, I am positioning this element off-screen
+ */
+caption {
+  position: absolute;
+  left: -999em;
+}
+
+/* this is to prevent border from showing around fieldsets and images (i.e., images inside anchors)
+ */
+fieldset, img {
+  border: 0;
+}
+
+/* to prevent a gap from showing below images in some browsers
+ */
+img {vertical-align: top;}
+
+/* color is to make that element stands out (see color set via body)
+ * padding is used so Internet Explorer does not cut-off descenders in letters like p, g, etc.)
+ */
+legend {
+  color: #000;
+  padding-bottom: .5em;
+}
+
+/* See Eric Meyer's article about Fixed Monospace Sizing
+ * http://meyerweb.com/eric/thoughts/2010/02/12/fixed-monospace-sizing/
+ */
+code {color: #06f;}
+code, pre {font-family: "Courier New", monospace, serif; font-size: 1em;}
+
+/* to prevent some browsers from inserting quotes on "q" and "p" ("p" in blockquotes) */
+blockquote p:before, blockquote p:after, q:before, q:after {content: '';}
+
+ins {
+  text-decoration: none;
+  border-bottom: 3px double #333;
+}
+
+del {text-decoration: line-through;}
+
+abbr,acronym {
+  border-bottom: 1px dotted #333;
+  font-variant: normal;
+}
+
+/* we use margin for hr for the same reason we do for table */
+hr {
+  margin-right: 30px;
+  margin-left: 30px;
+  border-style: inset;
+  border-width: 1px;
+}
+
+/* line height helps to set the vertical alignment of radio buttons and check boxes (remember to group these in fieldsets)
+ */
+fieldset {line-height: 1;}
+
+/* vertical alignment of checkboxes (a different value is served to IE 7)
+ */
+input[type="checkbox"] {
+  vertical-align: middle;
+  vertical-align: middle;
+}
+
+
+
+/* a specific font-size is set for these elements */
+input, button, textarea, select, optgroup, option {
+  font-size: 100%;
+}
+
+
+button,
+input[type="submit"],
+input[type="reset"],
+input[type="button"],
+.inputButton {
+  overflow: visible;
+  width: 0;
+  padding: .2em .4em;
+}
+
+
+a:link, a:visited {color: #000;}
+a:focus,:focus {outline: 1px dotted #000;}
+a:active, input:active, select:active, textarea:active {outline: none;}
+
+.grouped:after {
+     visibility: hidden;
+     display: block;
+     font-size: 0;
+     content: " ";
+     clear: both;
+     height: 0;
+     }
+.grouped { display: inline-block; }
+/* start commented backslash hack \*/
+* html .grouped { height: 1%; }
+.grouped { display: block; }
+
+.notice, .alert {
+  margin-top: 0px;
+  padding: 5px;
+}
+.notice {
+  border: solid 1px #99cc99;
+  background-color: #e2f9e3;
+  color: #006600;
+}
+
+.alert {
+  border: 1px solid #cc0000;
+  background-color: #eeaaaa;
+  color: #cc0000;
+}
+
+label {
+  width: 120px;
+  display: inline-block;
+}
+
+abbr {
+  cursor: default;
+  border: none;
+}
+
+input, textarea {
+ font-size:110%;
+}
+
+select {
+  font-size:120%;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus,
+input[type="file"]:focus,
+input[type="email"]:focus,
+textarea:focus, select:focus {
+  border:2px solid #2c2c2c;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="file"],
+input[type="email"],
+textarea, select {
+  width: 300px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  border:2px solid #D2D1CF;
+  color:#555555;
+  outline: 0 none;
+  padding:5px;
+}
+
+form .input label {
+  vertical-align: middle;
+}
+
+form .input.text label {
+  vertical-align: top;
+}

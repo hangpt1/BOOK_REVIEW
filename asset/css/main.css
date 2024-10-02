@@ -1,0 +1,59 @@
+:root {
+    --main_color:#FFF2D7;
+    --main_title_color:#5D853E;
+    --sub_title_color:#CE7B01;
+    --white_color:#fff;
+    --black_color: #000;
+    --gray_color: rgb(219, 226, 227);
+    --button_color: #5D853E;
+  }
+    body {
+    font-family: "Roboto", sans-serif;
+    background-image: url("https://thuthuatnhanh.com/wp-content/uploads/2022/06/Background-hoc-tap.jpg");
+    background-size: cover; 
+    background-repeat: no-repeat; 
+    background-position: center; 
+    background-attachment: fixed; 
+    margin: 0;
+    padding: 20px;
+  }
+  .container {
+    background-color: var(--white_color);
+    border: none;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    width: 50%;
+    height: 500px;
+    margin: 150px auto;
+    border-radius: 20px;
+    padding: 10px;
+  }
+  .container .form-container {
+    font-size: 17px;
+  }
+  .container .form-container .form .form-title {
+    color: var(--main_title_color);
+    font-size: 30px;
+  }
+  .container .form-container .form #loginEmail,
+  .container .form-container .form #loginPassword,
+  .container .form-container .form #signupEmail,
+  .container .form-container .form #signupPassword,
+  .container .form-container .form #signupName {
+    font-size: 15px;
+    border: solid 0.1px var(--button_color);
+    background-color: var(--white_color);
+    height: -moz-max-content;
+    height: max-content;
+  }
+  .container .form-container .form .button-form {
+    background-color: var(--button_color);
+    width: 30%;
+    height: 35px;
+    border: none;
+    color: var(--white_color);
+    border-radius: 5px;
+  }
+  .container .form-container .form .form-control a {
+    color: var(--sub_title_color);
+    text-decoration: none;
+  }/*# sourceMappingURL=main.css.map */
