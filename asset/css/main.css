@@ -503,7 +503,6 @@ select:focus {
   border-radius: 4px;
   margin-bottom: 10px;
   resize: none;
-  min-height: 100px; 
 }
 
 .submit {
