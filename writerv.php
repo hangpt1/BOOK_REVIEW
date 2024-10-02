@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./asset/css/rv.css">
+    <link rel="stylesheet" href="./asset/css/main.css">
     <title>Book Review</title>
     <script>
         function confirmSubmission() {
@@ -24,10 +24,36 @@
     </script>
 </head>
 <body>
+<div class="nav_wrap">
+        <div class="grid-container">
+            <div class="header">
+                <ul class="logo">
+                    <img src="./asset/logo/logo.png" alt="logo">
+                </ul>
+                <ul class="nav_ul">
+                    <li><a href="#book">Tủ sách</a></li>
+                    <li><a href="#bookreview">Bài review</a></li>
+                    <li><a href="#topic">Chủ đề</a></li>
+                    <li><a class="active" href="#home">Trang chủ</a></li>
+                </ul>
+                <ul class="user">
+                    <img id="user_img" class="user_img" src="./asset/logo/Screenshot 2024-10-02 at 09.37.04.png" alt="logo">
+                    <ul id="user_content" class="user-content">
+                        <li class="your_rv">Bài viết của bạn</li>
+                        <li class="your_cmt">Bình luận của bạn</li>
+                        <li class="user_logout">Đăng xuất</li>
+                        <li class="user_setting">Cài đặt</li>
+                    </ul>
+
+                </ul>
+            </div>
+            
+        </div>
+    </div>
     <div class="box">
         <div class="container">
             <div class="top-header">
-                <header>Book Review</header>
+                <h1 class="title">Book Review</h1>
             </div>
 
             <form action="#" method="POST" enctype="multipart/form-data">

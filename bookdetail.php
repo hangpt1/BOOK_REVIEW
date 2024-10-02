@@ -3,25 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="bookdetail.css">
+    <link rel="stylesheet" href="./asset/css/main.css">
     <title>Chi Tiết Bài Review Sách</title>
 </head>
 <body>
-    <div class="page-banner-section section bg-gray" bis_skin_checked="1">
-        <div class="container" bis_skin_checked="1">
-            <div class="row" bis_skin_checked="1">
-                <div class="col" bis_skin_checked="1">
+   <div class="nav_wrap">
+        <div class="grid-container">
+            <div class="header">
+                <ul class="logo">
+                    <img src="./asset/logo/logo.png" alt="logo">
+                </ul>
+                <ul class="nav_ul">
+                    <li><a href="#book">Tủ sách</a></li>
+                    <li><a href="#bookreview">Bài review</a></li>
+                    <li><a href="#topic">Chủ đề</a></li>
+                    <li><a class="active" href="#home">Trang chủ</a></li>
+                </ul>
+                <ul class="user">
+                    <img id="user_img" class="user_img" src="./asset/logo/Screenshot 2024-10-02 at 09.37.04.png" alt="logo">
+                    <ul id="user_content" class="user-content">
+                        <li class="your_rv">Bài viết của bạn</li>
+                        <li class="your_cmt">Bình luận của bạn</li>
+                        <li class="user_logout">Đăng xuất</li>
+                        <li class="user_setting">Cài đặt</li>
+                    </ul>
 
-                    <div class="page-banner text-center" bis_skin_checked="1">
-                        <h1>CHI TIẾT BÀI REVIEW</h1>
-                        <ul class="page-breadcrumb">
-                            <li><a href="./">Trang chủ</a></li>
-                            <li>Chi tiết review</li>
-                        </ul>
-                    </div>
-                </div>
+                </ul>
             </div>
+            
         </div>
+    </div>
+        
     </div>
     <div class="review-detail-container">
         <div class="user-info">

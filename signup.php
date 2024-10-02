@@ -10,7 +10,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="container">
+    <div class="container_login_signup">
             <center>
             <div class="form-container">
                 <form id="signupForm" class="form" action="?action=signup" method="POST"  >
