@@ -1,40 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./asset/css/main.css">
-    <title>Chi Tiết Bài Review Sách</title>
-</head>
-<body>
-   <div class="nav_wrap">
-        <div class="grid-container">
-            <div class="header">
-                <ul class="logo">
-                    <img src="./asset/logo/logo.png" alt="logo">
-                </ul>
-                <ul class="nav_ul">
-                    <li><a href="#book">Tủ sách</a></li>
-                    <li><a href="#bookreview">Bài review</a></li>
-                    <li><a href="#topic">Chủ đề</a></li>
-                    <li><a class="active" href="#home">Trang chủ</a></li>
-                </ul>
-                <ul class="user">
-                    <img id="user_img" class="user_img" src="./asset/logo/Screenshot 2024-10-02 at 09.37.04.png" alt="logo">
-                    <ul id="user_content" class="user-content">
-                        <li class="your_rv">Bài viết của bạn</li>
-                        <li class="your_cmt">Bình luận của bạn</li>
-                        <li class="user_logout">Đăng xuất</li>
-                        <li class="user_setting">Cài đặt</li>
-                    </ul>
 
-                </ul>
-            </div>
-            
-        </div>
-    </div>
-        
-    </div>
+<?php
+    include './inc/header.php'
+?>   
     <div class="review-detail-container">
         <div class="user-info">
             <img src="https://shophoavungtau.com/wp-content/uploads/2023/07/y-nghia-hoa-tulip.jpg" alt="Avatar của Phạm Ngọc Ánh">
@@ -46,10 +13,10 @@
 
         <div class="review-header">
             <div class="image-container">
-                <img id="book-image" src="https://nhasachphuongnam.com/images/detailed/205/bi-mat-cua-may-man-kho-lon.jpg" alt="Ảnh bìa cuốn sách">
+                <a href="./bdetail.php"><img id="book-image" src="https://nhasachphuongnam.com/images/detailed/205/bi-mat-cua-may-man-kho-lon.jpg" alt="Ảnh bìa cuốn sách"></a>
             </div>
             <div class="info-container">
-                <h2 id="review-title">Tiêu đề: <span>Bí quyết thành công và may mắn của Max</span></h2>
+                <h2 id="review-title">Tiêu đề: <strong><span>Bí quyết thành công và may mắn của Max</span></strong></h2>
                 <p class="book-title">Tên Cuốn Sách: <span id="book-title">Bí mật của may mắn</span></p>
                 <p class="author">Tác giả: <span id="author-name">Alex Rovira</span></p>
                 <p class="genre">Thể loại: <span id="genre">Sách tự lực</span></p>
@@ -64,45 +31,24 @@
                 
                 Dưới ngòi bút của Alex Rovira và Fernando Trías de Bes - hai nhà tư vấn tâm lý và tiếp thị hàng đầu thế giới đã có công trình nghiên cứu về thái độ, hành vi con người cũng như ước mong, niềm tin của họ đối với sự may mắn, dẫn đến thành công trong cuộc sống, xoay quanh 12 bí mật nhỏ, vừa kể chuyện, vừa trích dẫn châm ngôn triết lí những câu chuyện giản dị này có thể được áp dụng rất rộng rãi cho tất cả mọi người và có khả năng khích lệ tinh thần, thái độ sống một cách độc đáo.  </p>
             
-            <div class="video-container">
+            <!-- <div class="video-container">
                 <h3>Video review (Nếu có)</h3>
                 <video id="review-video" controls>
                     <source src="path/to/video.mp4" type="video/mp4">
                     Trình duyệt của bạn không hỗ trợ video.
                 </video>
-            </div>
+            </div> -->
         </div>
 
         <div class="comments-section">
             <h2>Bình luận</h2>
             <p>Vui lòng bình luận văn minh*</p>
             <form action="#" method="POST" id="comment-form">
-                <textarea id="comment" class="input" placeholder="Thêm bình luận của bạn" rows="3" required></textarea>
+                <textarea id="comment" class="input" placeholder="Thêm bình luận của bạn" rows="1" required></textarea>
                 <input type="submit" value="Đăng Bình Luận" class="submit">
             </form>
 
         </div>
-    </div>
-</body>
-<script>
-    document.getElementById("comment-form").addEventListener("submit", function(event) {
-        event.preventDefault(); // Ngăn trang reload lại khi gửi form
-
-        // Lấy giá trị bình luận từ textarea
-        const commentInput = document.getElementById("comment");
-        const commentText = commentInput.value;
-
-        // Tạo một phần tử mới để hiển thị bình luận
-        const newComment = document.createElement("div");
-        newComment.classList.add("comment");
-        newComment.textContent = commentText;
-
-        // Thêm bình luận mới vào phần bình luận
-        const commentsSection = document.querySelector(".comments-section");
-        commentsSection.appendChild(newComment);
-
-        // Xóa nội dung trong ô nhập sau khi gửi bình luận
-        commentInput.value = "";
-        });
-</script>
-</html>
+<?php
+    include './inc/footer.php'
+?>  

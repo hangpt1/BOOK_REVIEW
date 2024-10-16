@@ -24,8 +24,8 @@
                 <!-- <small>Error message</small> -->
                 <button type="submit" class="button-form">Đăng nhập</button>
                 <div class="form-control">
-                    <p>Chưa có tài khoản? <a href="?action=signin" id="showRegisterForm">Đăng ký</a></p>
-                    <p>Quên mật khẩu? <a href="?action=forgetpass" id="showForgotPasswordForm">Quên mật khẩu</a></p>
+                    <p>Chưa có tài khoản? <a href="./signup.php" id="showRegisterForm">Đăng ký</a></p>
+                    <p>Quên mật khẩu? <a href="./forgotpass.php" id="showForgotPasswordForm">Quên mật khẩu</a></p>
                 </div>
             </form>
         </div>

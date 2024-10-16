@@ -1,5 +1,5 @@
 * {
-  font-family: "Roboto", sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -12,8 +12,8 @@
     --black_color: #000;
     --gray_color: rgb(219, 226, 227);
     --button_color: #5D853E;
-  }
-    body {
+}
+  body {
     font-family: "Roboto", sans-serif;
     background-image: url("https://thuthuatnhanh.com/wp-content/uploads/2022/06/Background-hoc-tap.jpg");
     background-size: cover; 
@@ -33,6 +33,13 @@
   /* ------ */
   .main{
     margin-top: 30px !important;
+  }
+  a{
+    text-decoration: none !important;
+    color:var(--black_color) !important;
+  }
+  a:hover{
+    text-decoration:underline !important;
   }
   
   /* Style the header */
@@ -59,6 +66,7 @@
 
 .header .logo{
   width: 20%;
+  cursor: pointer;
   
 }
 .header .logo img{
@@ -91,7 +99,7 @@
 
 .nav_ul li a:hover {
   background-color: var(--gray_color);
-  color: var(--black_color);
+  color: var(--button_color);
 }
 .header .user{
   width: 7%;
@@ -195,7 +203,7 @@
 
 textarea.input {
   height: auto; 
-  min-height: 200px; 
+  /* min-height: 30px;  */
   padding: 10px; 
   overflow: auto; 
   resize: none; 
@@ -246,7 +254,25 @@ select:focus {
   border: 2px solid var(--button_color); 
 }
 
+/* style for phần đăng bài rv */
+input[type="file"] {
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+}
 
+button {
+  padding: 10px 20px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #45a049;
+}
 
 
 
@@ -446,12 +472,12 @@ select:focus {
 .image-container {
   flex: 1;
   margin-right: 20px;
-  max-width: 150px; 
+  max-width: 170px; 
   flex-shrink: 0; 
 }
 
 .image-container img {
-  width: 150px; 
+  width: 170px; 
   height: 220px; 
   object-fit: cover; 
   border-radius: 8px; 
