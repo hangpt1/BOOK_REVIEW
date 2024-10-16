@@ -16,6 +16,7 @@ Danh sách những trang cần code:
 Mục đích: Đại diện cho người dùng trong hệ thống.
 Thuộc tính:
   UserID: ID của người dùng (định danh duy nhất).
+
   Email: Email của người dùng.
   Username: Tên đăng nhập.
   Password: Mật khẩu của người dùng.
@@ -25,7 +26,7 @@ Phương thức:
   signup($email, $username, $password): Đăng ký tài khoản.
   changePassword($oldPassword, $newPassword): Đổi mật khẩu.
   resetPassword($email): Lấy lại mật khẩu.
-2. Class Book
+3. Class Book
 Mục đích: Đại diện cho một cuốn sách trong hệ thống.
 Thuộc tính:
   BookID: ID của cuốn sách.
@@ -40,7 +41,7 @@ Phương thức:
   addBook($bookData): Thêm sách mới.
   editBook($BookID, $bookData): Sửa thông tin sách.
   deleteBook($BookID): Xóa sách khỏi hệ thống.
-3. Class Comment
+4. Class Comment
 Mục đích: Đại diện cho một bình luận của người dùng về sách.
 Thuộc tính:
   CommentID: ID của bình luận.
@@ -51,7 +52,7 @@ Phương thức:
   addComment($UserID, $BookID, $comment): Thêm bình luận mới.
   editComment($CommentID, $comment): Sửa bình luận.
   deleteComment($CommentID): Xóa bình luận.
-4. Class Review
+5. Class Review
 Mục đích: Đại diện cho bài viết đánh giá của người dùng về sách.
 Thuộc tính:
   ReviewID: ID của bài viết đánh giá.
@@ -63,7 +64,7 @@ Phương thức:
   addReview($UserID, $BookID, $content): Thêm bài viết đánh giá mới.
   editReview($ReviewID, $content): Sửa bài viết đánh giá.
   deleteReview($ReviewID): Xóa bài viết đánh giá.
-5. Class Topic
+6. Class Topic
 Mục đích: Đại diện cho các chủ đề của sách.
 Thuộc tính:
   TopicID: ID của chủ đề.
@@ -72,7 +73,7 @@ Thuộc tính:
   addTopic($topicName): Thêm chủ đề mới.
   editTopic($TopicID, $topicName): Sửa thông tin chủ đề.
   deleteTopic($TopicID): Xóa chủ đề.
-6. Class Rating
+7. Class Rating
 Mục đích: Quản lý đánh giá sách và bình luận.
 Thuộc tính:
   UserID: ID của người đánh giá.
@@ -82,14 +83,14 @@ Thuộc tính:
 Phương thức:
   rateBook($UserID, $BookID, $rate): Đánh giá cuốn sách.
   rateComment($UserID, $CommentID, $rate): Đánh giá một bình luận.
-7. Class Admin
+8. Class Admin
 Mục đích: Đại diện cho quản trị viên của hệ thống.
 Phương thức:
   manageBooks(): Quản lý sách (thêm, sửa, xóa sách).
   manageUsers(): Quản lý người dùng (khóa tài khoản, chỉnh sửa thông tin).
   manageComments(): Quản lý bình luận (xóa, kiểm duyệt bình luận).
   manageReviews(): Quản lý các bài viết đánh giá.
-8. Class TopicBook
+9. Class TopicBook
 Mục đích: Liên kết giữa sách và chủ đề.
 Thuộc tính:
   TopicID: ID của chủ đề.
