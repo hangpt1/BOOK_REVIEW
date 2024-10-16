@@ -25,32 +25,6 @@ USE `bookreview`;
 
 
 
--- --------------------------------------------------------
-
---
--- Cấu trúc bảng cho bảng `admin`
---
--- Tạo: Th9 25, 2024 lúc 12:11 PM
---
-
-CREATE TABLE IF NOT EXISTS `admin` (
-  `Name` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  `Password` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- RELATIONSHIPS FOR TABLE `admin`:
---
-
---
--- Đang đổ dữ liệu cho bảng `admin`
---
-
-INSERT INTO `admin` (`Name`, `Password`) VALUES
-('Admin', '1234567');
-
--- --------------------------------------------------------
-
 --
 -- Cấu trúc bảng cho bảng `books`
 --
