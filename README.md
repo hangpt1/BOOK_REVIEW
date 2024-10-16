@@ -11,5 +11,4 @@ Danh sách những trang cần code:
   + topicbook (TopicID, BookID)
   + book_rating (UserID, BookID, rate)
   + comment_rating ( CommentID, UserID, rate)
-  + admin (name, password)
   + reviews(ReviewID, UserID, BookID, Content, created_at(giờ đăng))
