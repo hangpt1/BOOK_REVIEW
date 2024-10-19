@@ -21,6 +21,7 @@ Thuộc tính:
   Username: Tên đăng nhập.
   Password: Mật khẩu của người dùng.
   Avatar: Ảnh đại diện.
+  Role: Vai trò là người dùng hay admin, người dùng thì mặc định Null
 Phương thức:
   login($email, $password): Đăng nhập vào hệ thống.
   signup($email, $username, $password): Đăng ký tài khoản.
