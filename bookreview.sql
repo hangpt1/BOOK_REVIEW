@@ -288,8 +288,8 @@ CREATE TABLE IF NOT EXISTS `users` (
 --
 
 INSERT INTO `users` ( `Email`, `Username`, `Password`, `Avatar`) VALUES
-( 'Huyenngoc3654238@gmail.com', 'Huyen', '1234567', NULL),
-( 'le3654238@gmail.com', 'Mây', '1234567', NULL);
+( 'Huyenngoc3654238@gmail.com', 'Huyen', '1234567', NULL, NULL),
+( 'le3654238@gmail.com', 'Mây', '1234567', NULL, NULL);
 
 --
 -- Các ràng buộc cho các bảng đã đổ
