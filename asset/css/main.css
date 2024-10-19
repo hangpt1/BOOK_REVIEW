@@ -7,7 +7,7 @@
 :root {
     --main_color:#FFF2D7;
     --main_title_color:#5D853E;
-    --sub_title_color:#CE7B01;
+    --sub_title_color:#7e5b27;
     --white_color:#fff;
     --black_color: #000;
     --gray_color: rgb(219, 226, 227);
@@ -23,7 +23,18 @@
     margin: 0;
     padding: 0px;
   }
+  .form-control{
+    width: 450px !important ;
+
+  }
+  .btn{
+    width: 100px !important;
+  }
   /* ------ */
+  .main{
+    margin-top: 30px !important;
+  }
+  
   /* Style the header */
 .nav_wrap{
   position: sticky;
@@ -51,14 +62,15 @@
   
 }
 .header .logo img{
-  width: 50%;
+  width: 70%;
   float: left;
   border-radius: 50%;
 
 }
+
 .nav_ul {
   font-weight: 1000;
-  width: 72%;
+  width: 50%;
   list-style-type: none;
   align-items: center;
   overflow: hidden;
@@ -82,20 +94,20 @@
   color: var(--black_color);
 }
 .header .user{
-  width: 8%;
+  width: 7%;
   position: relative;
   
 }
 .header .user .user_img{
-  width: 50%;
-  float: right;
+  width: 100%;
+  float: left;
   border-radius: 50%;
 }
 .header .user .user-content{
   display: none;
   background-color: var(--white_color);
   position: absolute;
-  left: 0px;
+  left: -30px;
   top: 90px;
   list-style-type: none;
   text-decoration: none;
@@ -113,9 +125,16 @@
 .header .user:hover .user-content li:hover{
   color: var(--main_title_color);
 }
-
+.main_content{
+  margin-top: 30px;
+}
 /* ------- */
-/* style for writerv */
+/* style for filter */
+
+/* .container .row .main{
+  background-color: var(--white_color);
+} */
+/* style for writev */
 .box {
   margin-top: 30px;
   display: flex;
