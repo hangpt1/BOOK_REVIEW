@@ -11,7 +11,7 @@ Danh sách những trang cần code:
   + topicbook (TopicID, BookID)
   + book_rating (UserID, BookID, rate)
   + comment_rating ( CommentID, UserID, rate)
-  + reviews(ReviewID, UserID, BookID, Content, created_at(giờ đăng))
+  + reviews(ReviewID, UserID, BookID, Content, created_at(giờ đăng), status (trạng thái ))
 1. Class User
 Mục đích: Đại diện cho người dùng trong hệ thống.
 Thuộc tính:
@@ -21,7 +21,7 @@ Thuộc tính:
   Username: Tên đăng nhập.
   Password: Mật khẩu của người dùng.
   Avatar: Ảnh đại diện.
-  Role: Vai trò là người dùng hay admin, người dùng thì mặc định Null
+  Role: Vai trò là người dùng hay admin, người dùng thì mặc định User
 Phương thức:
   login($email, $password): Đăng nhập vào hệ thống.
   signup($email, $username, $password): Đăng ký tài khoản.
@@ -61,6 +61,7 @@ Thuộc tính:
   BookID: ID của cuốn sách được đánh giá.
   Content: Nội dung bài viết đánh giá.
   created_at: Ngày viết bài đánh giá.
+  Status : Trạng thái, mặc định là chưa duyệt 
 Phương thức:
   addReview($UserID, $BookID, $content): Thêm bài viết đánh giá mới.
   editReview($ReviewID, $content): Sửa bài viết đánh giá.
