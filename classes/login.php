@@ -37,17 +37,17 @@
                     Session::set( 'UserID', $value['UserID']);
                     Session::set( 'Email', $value['Email']);
                     Session::set( 'UserName', $value['UserName']);
-                    Session::set( 'Password', $value['Password']);
+                    Session::set( 'Pass', $value['Pass']);
                     Session::set( 'Avatar', $value['Avatar']);
                     Session::set( 'Role', $value['Role']);
-                    header('Location:index.php');
-                    // if ($value['Role'] === 'admin') {
-                    //     header('Location:ad_review/index.php');
-                    //     exit(); // Kết thúc script
-                    // } else {
-                    //     header('Location:index.php');
-                    //     exit();
-                    // }
+                    // header('Location:index.php');
+                    if ($value['Role'] === 'admin') {
+                        header('Location:ad_review/index.php');
+                        exit(); // Kết thúc script
+                    } elseif  ($value['Role'] === 'User') {
+                        header('Location:index.php');
+                        exit();
+                    }
                     
                 }else{
                     $alert = 'Email hoặc mật khẩu không đúng';
