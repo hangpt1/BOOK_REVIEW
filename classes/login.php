@@ -31,7 +31,7 @@
             // Nếu người dùng bỏ trống
             if (empty($loginEmail) || empty($loginPassword)){
                 $alert = "Bạn không được bỏ trống Email và Mật khẩu";
-                return $alert;
+                return $alert . "<br>" . "<br>";
             }else{
                 // Nếu như người dùng nhập đúng ký tự thì sẽ tiến hành check role và tài khoản
                 $query = "SELECT * FROM users WHERE Email = '$loginEmail' AND Pass = '$loginPassword' LIMIT 1";
@@ -54,7 +54,7 @@
                     }
                 }else{
                     $alert = 'Email hoặc mật khẩu không đúng';
-                    return $alert;
+                    return $alert . "<br>" . "<br>";
                 }
             }
         }
