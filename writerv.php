@@ -1,5 +1,5 @@
 <?php
-    include './inc/header.php'
+    include './inc/header.php';
 ?>     
     <div class="box">
         <div class="container">

@@ -6,7 +6,7 @@
     <title>Đăng ký BookReview</title>
     <link rel="stylesheet" href="./asset/css/base.css">
     <link rel="stylesheet" href="./asset/css/main.css">
-    <link rel="stylesheet" href="assets/fontawesome-free-6.5.2-web (1)/fontawesome-free-6.5.2-web/css/all.min.css">
+    <!-- <link rel="stylesheet" href="assets/fontawesome-free-6.5.2-web (1)/fontawesome-free-6.5.2-web/css/all.min.css"> -->
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -26,9 +26,9 @@
                     <label for="signupPassword">Mật khẩu <span style="color:red;">*</span></label>
                     <input type="password" id="signupPassword" name="signupPassword" placeholder="Password" ><br><br>
                     <!-- <small>Error message</small> -->
-                    <button type="submit" class="button-form">Đăng nhập</button>
+                    <button type="submit" class="button-form">Đăng ký</button>
                     <div class="form-control">
-                        <p>Đã có tài khoản? <a href="?action=login" id="showLoginForm">Đăng nhập</a></p>
+                        <p>Đã có tài khoản? <a href="./login.php">Đăng nhập</a></p>
                     </div>
                 </form>
             </div>

@@ -1,0 +1,9 @@
+# Kích hoạt mô-đun rewrite của Apache
+RewriteEngine On
+
+# Nếu URL không trỏ đến một tệp hay thư mục cụ thể
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+# Định dạng lại URL để chuyển các đường dẫn đến index.php với tham số query
+RewriteRule ^(.+)$ index.php?url=$1 [QSA,L]

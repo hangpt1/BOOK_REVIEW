@@ -1,3 +1,19 @@
+<?php
+    include './classes/login.php';
+?>
+<?php
+    $class = new login();
+    // Nếu như sever rq = post thì lấy dữ liệu
+    if($_SERVER['REQUEST_METHOD'] === 'POST')
+    {
+        $loginEmail  = $_POST['loginEmail'];
+        $loginPassword  = md5($_POST['loginPassword']);
+        // check format cho thông tin login
+        $login_check = $class->login($loginEmail,$loginPassword);
+
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,14 +31,16 @@
         <div class="form-container">
             <form id="loginForm" class="form" action="?action=login" method="POST"  >
                 <h2 class="form-title">Đăng nhập</h2><br>
-
+                <span><?php
+                if(isset($login_check)){
+                    echo $login_check;
+                }
+                ?></span>
                 <label for="loginEmail">Email <span style="color:red;">*</span></label>
                 <input type="email" id="loginEmail" name="loginEmail" placeholder="Email" ><br><br>
-                <!-- <small>Error message</small> -->
                 <label for="loginPassword">Mật khẩu <span style="color:red;">*</span></label>
                 <input type="password" id="loginPassword" name="loginPassword" placeholder="Password" ><br><br>
-                <!-- <small>Error message</small> -->
-                <button type="submit" class="button-form">Đăng nhập</button>
+                <input type="submit" class="button-form" value="Đăng nhập"></input>
                 <div class="form-control">
                     <p>Chưa có tài khoản? <a href="./signup.php" id="showRegisterForm">Đăng ký</a></p>
                     <p>Quên mật khẩu? <a href="./forgotpass.php" id="showForgotPasswordForm">Quên mật khẩu</a></p>

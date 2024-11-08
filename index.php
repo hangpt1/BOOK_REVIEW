@@ -1,8 +1,6 @@
 
 <?php
-    include './inc/header.php'
-    
-
+    include './inc/header.php';
 ?>     
     <div class="container main_content">
 
@@ -182,5 +180,5 @@
         </div>
     </div>
 <?php
-    include './inc/footer.php'
+    include './inc/footer.php';
 ?>  

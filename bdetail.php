@@ -1,6 +1,6 @@
 
 <?php
-    include './inc/header.php'
+    include './inc/header.php';
 ?>     
    <div class="review-detail-container">
         
@@ -14,7 +14,6 @@
                 <p class="author">Tác giả: <span id="author-name">Alex Rovira</span></p>
                 <p class="author">Năm xuất bản: <span id="author-name">2020</span></p>
                 <p class="author">Ngày tạo: <span id="author-name">01/01/2023</span></p>
-
                 <p class="genre">Thể loại: <span id="genre">Tiểu Thuyết</span></p>
             </div>
         </div>

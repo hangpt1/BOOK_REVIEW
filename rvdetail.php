@@ -1,6 +1,6 @@
 
 <?php
-    include './inc/header.php'
+    include './inc/header.php';
 ?>   
     <div class="review-detail-container">
         <div class="user-info">

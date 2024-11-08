@@ -33,7 +33,7 @@
                 <br>
                 <a href="./qlcmt.php" class="link-box">Quản lý Bình luận</a>
                 <br>
-                <a href="./logout.php" class="link-box">Đăng xuất</a>
+                <a href="../login.php" class="link-box">Đăng xuất</a>
             </div>
     </div>
     
