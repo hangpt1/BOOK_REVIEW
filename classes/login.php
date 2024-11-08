@@ -29,7 +29,7 @@
                 return $alert . "<br>";
             }else{
                 // Nếu như người dùng nhập đúng ký tự thì sẽ tiến hành check role và tài khoản
-                $query = "SELECT * FROM users WHERE Email = '$loginEmail' AND Password = '$loginPassword' LIMIT 1";
+                $query = "SELECT * FROM users WHERE Email = '$loginEmail' AND Pass = '$loginPassword' LIMIT 1";
                 $result = $this->db->select($query);
                 if($result != false){
                     $value = $result->fetch_assoc();

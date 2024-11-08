@@ -117,7 +117,7 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 
-INSERT INTO `users` (`UserID`, `Email`, `Username`, `Password`, `Avatar`, `Role`) VALUES
+INSERT INTO `users` (`UserID`, `Email`, `Username`, `Pass`, `Avatar`, `Role`) VALUES
 (1, 'huyenngoc3654238@gmail.com', 'Huyen', '1234567', NULL, 'User'),
 (2, 'le3654238@gmail.com', 'May ', '1234567', NULL, 'User');
 
