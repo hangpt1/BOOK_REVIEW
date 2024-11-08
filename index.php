@@ -1,6 +1,8 @@
 
 <?php
     include './inc/header.php'
+    
+
 ?>     
     <div class="container main_content">
 
@@ -147,7 +149,7 @@
                                     <h5 style="overflow: hidden;text-overflow: ellipsis;display: -webkit-box;-webkit-line-clamp: 1;-webkit-box-orient: vertical;" class="card-title" class="card-title">Bạn không thông minh lắm đâu</h5>
                                     <p style="overflow: hidden;text-overflow: ellipsis;display: -webkit-box;-webkit-line-clamp: 3;-webkit-box-orient: vertical;" class="card-title" class="card-text">Đây là nội dung bài đăng Đây là nội dung bài đăng Đây là nội dung bài đăng Đây là nội dung bài đăng Đây là nội dung bài đăng</p>
                                     <small>3 giờ trước</small><br>
-                                    <a href="./rvdetail.php" class="btn btn-primary">Xem thêm</a>
+                                    <a href="./rvdetail.php" class="btn ">Xem thêm</a>
                                 </div>
                             </div>
                         </div>
@@ -158,7 +160,7 @@
                                     <h5 style="overflow: hidden;text-overflow: ellipsis;display: -webkit-box;-webkit-line-clamp: 1;-webkit-box-orient: vertical;" class="card-title" class="card-title">Bạn không thông minh lắm đâu</h5>
                                     <p style="overflow: hidden;text-overflow: ellipsis;display: -webkit-box;-webkit-line-clamp: 3;-webkit-box-orient: vertical;" class="card-title" class="card-text">Đây là nội dung bài đăng Đây là nội dung bài đăng Đây là nội dung bài đăng Đây là nội dung bài đăng Đây là nội dung bài đăng</p>
                                     <small>3 giờ trước</small><br>
-                                    <a href="./rvdetail.php" class="btn btn-primary">Xem thêm</a>
+                                    <a href="./rvdetail.php" class="btn ">Xem thêm</a>
                                 </div>
                             </div>
                         </div>

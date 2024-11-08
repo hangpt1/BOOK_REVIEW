@@ -41,7 +41,7 @@
                     <li><a href="#book">Cài đặt</a></li>
                     <!-- <li><a href="#bookreview">Bài review</a></li> -->
                     <!-- <li><a href="#topic">Chủ đề</a></li> -->
-                    <li><a class="active" href="./index.php">Trang chủ</a></li>
+                    <li><a class="active nav_menu" href="./index.php">Trang chủ</a></li>
                 </ul>
                 <ul class="user">
                     <img id="user_img" class="user_img" src="./asset/logo/Screenshot 2024-10-02 at 09.37.04.png" alt="logo">
