@@ -1,5 +1,6 @@
 # Kích hoạt mô-đun rewrite của Apache
 RewriteEngine On
+RewriteBase /brv/
 
 # Nếu URL không trỏ đến một tệp hay thư mục cụ thể
 RewriteCond %{REQUEST_FILENAME} !-f

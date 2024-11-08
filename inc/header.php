@@ -1,3 +1,7 @@
+<?php
+    include './lib/session.php';
+    Session::checkSession();
+?>
 <?php include './config/config.php'; ?>
 
 <!DOCTYPE html>
@@ -32,9 +36,14 @@
                 <ul class="user">
                     <img id="user_img" class="user_img" src="./asset/logo/Screenshot 2024-10-02 at 09.37.04.png" alt="logo">
                     <ul id="user_content" class="user-content">
-                        <li class="user_login"><a href="<?php echo BASE_URL; ?>login.php">Đăng nhập</a></li>
-                        <li class="your_rv"><a href="<?php echo BASE_URL; ?>yourrv.php">Bài viết của bạn</a></li>
-                        <li class="user_logout"><a href="<?php echo BASE_URL; ?>signup.php">Đăng xuất</a></li>
+                        <li class="user_login"><a href="?action=login">Đăng nhập</a></li>
+                        <li class="your_rv"><a href="#">Bài viết của bạn</a></li>
+                        <?php
+                            if(isset($_GET['action']) &&  $_GET['action'] =='logout'){
+                                Session::destroy();
+                            }
+                        ?>
+                        <li class="user_logout"><a href="?action=logout">Đăng xuất</a></li>
                     </ul>
 
                 </ul>

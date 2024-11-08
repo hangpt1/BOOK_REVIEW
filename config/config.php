@@ -5,6 +5,3 @@
     define("DB_PASS", "");
     define("DB_NAME", "bookreview");
 ?>
-<?php
-define('BASE_URL', '/brv/');
-?>

@@ -1,3 +1,8 @@
+<?php
+    include '../lib/session.php';
+    Session::checkSession();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -33,7 +38,12 @@
                 <br>
                 <a href="./qlcmt.php" class="link-box">Quản lý Bình luận</a>
                 <br>
-                <a href="../login.php" class="link-box">Đăng xuất</a>
+                <?php
+                if(isset($_GET['action']) &&  $_GET['action'] =='logout'){
+                    Session::destroyAd();
+                }
+                ?>
+                <a href="?action=logout" class="link-box">Đăng xuất</a>
             </div>
     </div>
     
