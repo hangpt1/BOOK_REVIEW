@@ -118,8 +118,8 @@ CREATE TABLE `users` (
 
 
 INSERT INTO `users` (`UserID`, `Email`, `Username`, `Pass`, `Avatar`, `Role`) VALUES
-(1, 'huyenngoc3654238@gmail.com', 'Huyen', '1234567', NULL, 'User');
-(2, 'le3654238@gmail.com', 'May ', '1234567', NULL, 'User');
+(1, 'huyenngoc3654238@gmail.com', 'Huyen', '1234567', NULL, 'User'),
+(2, 'le3654238@gmail.com', 'May ', '1234567', NULL, 'User'),
 (3, 'admin@gmail.com', 'admin ', '1234567', NULL, 'admin');
 
 
