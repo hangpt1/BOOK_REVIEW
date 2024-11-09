@@ -104,14 +104,8 @@ h3{
     font-size: 18px;
     margin-bottom: 10px;
 }
-.dropdown {
-    list-style-type: none;
-    padding: 0;
-}
 
-.dropdown-link {
-    margin-left: 15px;
-}
+
 
 .linkdr {
     display: block;
@@ -126,13 +120,17 @@ h3{
     background-color: #e0e0e0;
 }
 
-.dropdown-link {
-    margin-bottom: 5px;
-}
+    
 .dropdown {
     display: none; /* Ẩn dropdown mặc định */
     list-style-type: none;
     padding: 0;
+}
+
+
+.dropdown-link {
+    margin-left: 15px;
+    margin-bottom: 5px;
 }
 table {
     width:1000px;
@@ -221,3 +219,4 @@ button:hover {
     background-color: rgba(255, 255, 255, 0.3);
     color:black
 }
+/* motasach.php */
