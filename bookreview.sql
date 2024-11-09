@@ -1,3 +1,5 @@
+CREATE DATABASE IF NOT EXISTS `bookreview` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+USE `bookreview`;
 
 CREATE TABLE `books` (
   `BookID` int(11) NOT NULL,
