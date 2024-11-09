@@ -9,7 +9,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="style.css">
-    <title>Document</title>
+    <title>Admin</title>
 </head>
 <body>
 
@@ -19,9 +19,7 @@
             <h3><b>Menu</b></h3>
             <a href="./index.php" class="link-box">Trang chủ</a>
             <br>
-            <a href="qlbv.php" class="link-box">Quản lý bài viết</a>
-            <br>
-            <a href="motasach.php" class="link-box">Thêm sách</a>
+            <a href="qlbv.php" class="link-box">Quản lý sách</a>
             <br>
             <a href="./qlrv.php" class="link-box">Quản lý Review</a>
             <br>
@@ -35,4 +33,5 @@
             <a href="?action=logout" class="link-box">Đăng xuất</a>
         </div>
     </div>
+
     

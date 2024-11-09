@@ -3,8 +3,14 @@
 ?>
     <div class="main-content">
         
-        <h1><b>DANH SÁCH BÀI VIẾT</b></h1>
-
+        <h1><b>DANH SÁCH SÁCH</b></h1>
+        <div class="search-wrapper">
+            <form class='search' action="qlbv.php" method="get">
+                    <input type="text" name="search" /> <br> <br>
+                    <input type="submit" name="OK" value="Tìm kiếm"/>
+            </form>
+            <a href="./motasach.php"><button class="btn">Thêm sách</button></a>
+        </div>
         <table class="product-items">
             <thead>
                 <tr>
@@ -21,7 +27,6 @@
                 </tr>
             </thead>
             <tbody>
-                <!-- Thêm các hàng dữ liệu ở đây -->
                 <tr>
                     <td><img src="avt.png" alt="" /></td>
                     <td>1</td>
@@ -31,15 +36,15 @@
                     <td>Chủ đề</td>
                     <td>01/01/2024</td>
                     <td>2024</td>
-                    <td><button>Xóa</button></td>
-                    <td><button>Sửa</button></td>
+                    <td><a href="#"><button class="btn">Xóa</button></a></td>
+                    <td><a href="#"><button class="btn">Sửa</button></a></td>
                 </tr>
-                <!-- Các dòng khác -->
             </tbody>
         </table>
             
             <div class="clear-both"></div>
     </div>
+</div>
     
 </body>
 </html>
