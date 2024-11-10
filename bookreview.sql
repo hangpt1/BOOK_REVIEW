@@ -8,8 +8,7 @@ CREATE TABLE `books` (
   `Published_year` int(4) DEFAULT NULL,
   `De` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `Topic` int(11) NOT NULL, 
-  `Image` varchar(255) DEFAULT NULL,
-  `created_at` timestamp NOT NULL DEFAULT current_timestamp()
+  `Img_product` varchar(255) DEFAULT NULL,
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 INSERT INTO `books` (`BookID`, `Bookname`, `Author`, `Published_year`, `De`,`Topic` `Image`, `created_at`) VALUES
