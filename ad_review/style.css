@@ -277,3 +277,12 @@ input[type="file"] {
     background-color: white; 
     color: black;
 }
+/* duyệt rv */
+.status-approved {
+    color: green;
+    font-weight: bold;
+}
+.status-pending {
+    color: red;
+    font-weight: bold;
+}

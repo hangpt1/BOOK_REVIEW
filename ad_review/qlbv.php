@@ -42,8 +42,6 @@
                     <th class="product-prop product-time">Năm xuất bản</th>
                     <th class="product-prop product-name">Nội dung</th>
                     <th class="product-prop product-button">Chủ đề</th>
-                    <!-- <th class="product-prop product-time">Ngày tạo</th> -->
-                    
                     <th class="product-prop product-button">Xóa</th>
                     <th class="product-prop product-button">Sửa</th>
                 </tr>
@@ -53,13 +51,12 @@
                     <?php
                     $book_list = $book->showBook();
                     if($book_list){
-                        
                         $i=$book_list->num_rows;
                         while($result = $book_list->fetch_assoc()){
                             $i--;
                     ?>
                     <td><img src="uploads/<?php echo $result['Img_product'] ?>"></td>
-                    <td><?php echo $i?></td>
+                    <td><?php echo $result['BookID']?></td>
                     <td><?php echo $result['Bookname'] ?></td>
                     
                     <td><?php echo $result['Author'] ?></td>

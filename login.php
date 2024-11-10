@@ -1,6 +1,8 @@
 
 <?php
     include './classes/login.php';
+    Session::checkSession();
+    
 ?>
 <?php
     $class = new login();
