@@ -20,6 +20,7 @@ include '../helper/format.php';
             $this->fm = new Format();
         }
         public function insertBook($data, $file){
+
             // Kết nối với cơ sở dữ liệu
             $bookName = mysqli_real_escape_string($this->db->link, $data['bookName']);
             $author = mysqli_real_escape_string($this->db->link, $data['author']);
@@ -36,12 +37,17 @@ include '../helper/format.php';
             $file_ext = strtolower(end($div));
             $unique_image = substr(md5(time()), 0, 10).'.'.$file_ext;
             $upload_image = "uploads/".$unique_image;
-
+            
             // Nếu người dùng bỏ trống
             if ($bookName ==""|| $author = ""|| $publishedYear == ""|| $description ==""|| $topic ==""|| $file_name ==""){
                 $alert = "<span style='color:red;!important' class='success'>Bạn không được bỏ trống</span>";
                 return $alert . "<br>" . "<br>";
             }else{
+                // nếu người dùng nhập sai năm
+                if (!is_numeric($publishedYear) || strlen($publishedYear) != 4) {
+                    $alert = "<span style='color:red;' class='success'>Năm xuất bản phải là một số có 4 chữ số</span>";
+                    return $alert . "<br>" . "<br>";
+                }
                 move_uploaded_file($file_temp, $upload_image);
                 // thêm vào scdl
                 $query = "INSERT INTO books(Bookname, Author, Published_year, De, Topic,Img_product) VALUES('$bookName', '$author', '$publishedYear', '$description','$topic', '$unique_image')";
@@ -54,6 +60,13 @@ include '../helper/format.php';
                     return $alert . "<br>" . "<br>";
                 }
             }
+            
+        }
+        public function showBook(){
+            $query = "SELECT * FROM books order by BookID desc";
+            $result = $this->db->select($query);
+            return $result;
+
         }
     }
 ?>

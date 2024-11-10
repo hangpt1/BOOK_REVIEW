@@ -5,7 +5,7 @@
     include './inc/sidebar.php';
 ?>
 <?php
-    include './classes/book.php';
+    include '../classes/book.php';
     include '../classes/topic.php';
 ?>
 <?php
