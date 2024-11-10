@@ -1,6 +1,7 @@
 
 <?php
     include './inc/header.php';
+    
 ?>     
     <div class="container main_content">
 

@@ -5,8 +5,6 @@
     ini_set('display_startup_errors', 1);
     error_reporting(E_ALL);
 
-    // include '../lib/database.php';
-    // include '../helper/format.php';
 
 ?>
 

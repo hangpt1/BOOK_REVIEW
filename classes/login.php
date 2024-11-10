@@ -1,6 +1,6 @@
 
 <?php
-
+    
     ini_set('display_errors', 1);
     ini_set('display_startup_errors', 1);
     error_reporting(E_ALL);
@@ -16,8 +16,10 @@
     class login {
         private $db;
         private $fm;
+        
         public function __construct()
         {
+            Session::init();
             $this->db = new Database();
             $this->fm = new Format();
         }
