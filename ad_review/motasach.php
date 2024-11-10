@@ -13,22 +13,14 @@
     // Nếu như sever rq = post thì lấy dữ liệu
     if($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit']) )
     {
-        // $bookName  = $_POST['bookName'];
-        // $author  = $_POST['author'];
-        // $publishedYear  = $_POST['publishedYear'];
-        // $description  = $_POST['description'];
-        // $bookImage  = $_FILES['bookImage'];
-        // $topic = $_POST['topic'];
-        // $created_at  = date('Y-m-d H:i:s'); // Tự động lấy thời gian hiện tại
-
-        // check format cho thông tin login
+    
         $addBook = $book->insertBook($_POST, $_FILES);
 
     }
 ?>
         <div class="main-content">
             <div class="box">
-                    <h3 class="title">Book Review</h3>
+                    <h3 class="title">Thêm sách</h3>
                 <?php
                 if(isset($addBook)){
                     echo $addBook;
