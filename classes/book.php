@@ -45,7 +45,7 @@ include '../helper/format.php';
             }else{
                 // nếu người dùng nhập sai năm
                 $currentYear = date("Y");
-                if (!is_numeric($publishedYear) || strlen($publishedYear) != 4 ||$publishedYear >= 1450 || $publishedYear <= ($currentYear + 2)) {
+                if (!is_numeric($publishedYear) || strlen($publishedYear) != 4 ||$publishedYear <= 1450 || $publishedYear >= ($currentYear + 2)) {
                     $alert = "<span style='color:red;' class='success'>Năm xuất bản không hợp lệ!</span>";
                     return $alert . "<br>" . "<br>";
                 }
@@ -156,4 +156,7 @@ include '../helper/format.php';
 
         
     }
+
+
+    
 ?>

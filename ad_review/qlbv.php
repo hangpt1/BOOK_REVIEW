@@ -59,7 +59,7 @@
                             $i--;
                     ?>
                     <td><img src="uploads/<?php echo $result['Img_product'] ?>"></td>
-                    <td><?php echo $i?></td>
+                    <td><?php echo $result['BookID']?></td>
                     <td><?php echo $result['Bookname'] ?></td>
                     
                     <td><?php echo $result['Author'] ?></td>
