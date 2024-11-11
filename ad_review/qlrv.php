@@ -66,7 +66,7 @@
                             
                      ?></td>
                     <td><?php echo $fm->textShorten($result['Content'], 50) ?></td>
-                    <td><?php echo $book_result['star'] ?></td>
+                    <td><?php echo $result['star'] ?></td>
                     <td><?php echo date("d/m/Y", strtotime($result['Create_at'])) ?></td>
                     
                     <!-- Kiểm tra trạng thái và hiển thị với màu sắc tương ứng -->
