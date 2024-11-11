@@ -7,6 +7,8 @@
     // include_once '../classes/login.php';
     $book = new Book();
     $rv = new Review();
+    $cmt = new Comment();
+
 
     
     
@@ -38,22 +40,27 @@
         if($rv_list){
             $i=$rv_list->num_rows;
         ?>
-        <h2><?php echo $ri?></h2>
-        <?php
-
-                    
-                        
-                    }
-                    ?>
+        <h2><?php echo $i?></h2>
+        <?php               
+        }
+        ?>
         <p>BÀI ĐĂNG</p>
     </div>
-    <div class="box members">
+    <!-- <div class="box members">
         <h2>44</h2>
         <p>THÀNH VIÊN</p>
 
-    </div>
+    </div> -->
     <div class="box comments">
-        <h2>65</h2>
+    <?php
+        $cmt_list = $cmt->showCmt();
+        if($cmt_list){
+            $i=$cmt_list->num_rows;
+        ?>
+        <h2><?php echo $i?></h2>
+        <?php               
+        }
+        ?>
         <p>BÌNH LUẬN</p>
 
     </div>
