@@ -15,7 +15,7 @@
     }
 ?> 
 <?php
-    $rv = new Review();
+   
     $fm = new Format();
     if(isset($_GET['ReviewID'])){
         $id = $_GET['ReviewID'];
@@ -89,7 +89,7 @@
                         <!-- dòng 1 -->
                         <div class="row py-1">
                             <!-- SÁCH 1 -->
-                            <?php
+                                <?php
                                     $book_list = $book->showBook();
                                     if($book_list){
                                         $i=$book_list->num_rows;
@@ -126,43 +126,64 @@
                         
                 
                     </div>
-                    <div class="col-4">
-                        <?php
-                        $rv_list = $rv->showReview();
-                        $rvbook_id = $result_rv['BookID'];
-                        $book_result = $book->getBookById($rvbook_id);
-                        if($rv_list){
-                            
-                            // $i=$rv_list->num_rows;
-                            while($result_rv = $rv_list->fetch_assoc()){
-                                $i--;
-                        ?>
-                        <div class="row py-1">
-                            
-                            <div class="card" style="width: 400px">
-                                <div class="card-body">
-                                    
-                                    <img class="py-3" src="ad_review/uploads/<?php echo $book_result['Img_product']?>" class="card-img-top" alt="Bạn không thông minh lắm đâu.jpg">
-                                    
-                                    <h5 style="overflow: hidden;text-overflow: ellipsis;display: -webkit-box;-webkit-line-clamp: 1;-webkit-box-orient: vertical;" class="card-title" class="card-title">
-
-                                        bừhjewf
-                                    </h5>
-                                    <p style="overflow: hidden;text-overflow: ellipsis;display: -webkit-box;-webkit-line-clamp: 3;-webkit-box-orient: vertical;" class="card-title" class="card-text">Đây là nội dung bài đăng Đây là nội dung bài đăng Đây là nội dung bài đăng Đây là nội dung bài đăng Đây là nội dung bài đăng</p>
-                                    <small>3 giờ trước</small><br>
-                                    <a href="./rvdetail.php" class="btn btn-primary">Xem thêm</a>
-                                </div>
-
-
-                            </div>
-
-                        </div>
-                        <?php
 
                     
-                                    }
-                                }
+                    <div class="col-4">
+                        
+                        <div class="row py-1">
+                                <div class="card" style="width: 400px">
+                                <?php
+                                // TÌM ẢNH CỦA BOOK ĐƯỢC RV
+                                $rv = new Review();
+                                $rv_list = $rv->showReview();
+                                if($rv_list){
+                                    $i=$rv_list->num_rows;
+                                    while($result = $rv_list->fetch_assoc()){
+                                        $i--;
                                 ?>
+                                    <div class="card-body">
+                                        
+                                        <!-- ẢNH SÁCH -->
+                                        <img class="py-3" src="ad_review/uploads/<?php
+                                            $book = new Book();
+                                            $book_list = $book->showBook();
+                                            // Duyệt qua tất cả các topic để tìm topic phù hợp
+                                            while($book_result = $book_list->fetch_assoc()) {
+                                                if ($result['BookID'] == $book_result['BookID']){
+                                                    echo $book_result['Img_product'];
+                                                    break;
+                                                }
+                                            }
+                                        ?>" class="card-img-top" alt="Bạn không thông minh lắm đâu.jpg">
+                                        <!-- TÊN SÁCH -->
+                                        <h5 class="card-title">
+                                        <?php
+                                            $book = new Book();
+                                            $book_list = $book->showBook();
+                                            // Duyệt qua tất cả các topic để tìm topic phù hợp
+                                            while($book_result = $book_list->fetch_assoc()) {
+                                                if ($result['BookID'] == $book_result['BookID']){
+                                                    echo $book_result['Bookname'];
+                                                    break;
+                                                }
+                                            }
+                                        ?>
+                                        </h5>
+                                        <p style="overflow: hidden;text-overflow: ellipsis;display: -webkit-box;-webkit-line-clamp: 3;-webkit-box-orient: vertical;" class="card-title" class="card-text"><?php echo $result['Content']?></p>
+                                        <small><?php echo $result['Create_at']?></small><br>
+                                        <a href="./rvdetail.php" class="btn btn-primary">Xem thêm</a>
+                                        <?php
+                                                }
+                                            }
+                                            ?>
+                                    </div>
+
+                                    
+                                </div>
+                                
+
+                        </div>
+                        
                         
                         
                     </div>
