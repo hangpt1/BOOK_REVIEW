@@ -1,3 +1,22 @@
+<?php
+    include './classes/signup.php';
+?>
+<?php
+    $class = new Signup();
+    // Nếu như sever rq = post thì lấy dữ liệu
+    if($_SERVER['REQUEST_METHOD'] === 'POST')
+    {
+        $signupEmail  = $_POST['signupEmail'];
+        $signupName  = $_POST['signupName'];
+        $signupPassword  = $_POST['signupPassword'];
+        // check format cho thông tin signup
+        $signup_check = $class->Signup($signupEmail, $signupName, $signupPassword);
+
+    }
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,7 +34,11 @@
             <div class="form-container">
                 <form id="signupForm" class="form" action="?action=signup" method="POST"  >
                     <h2 class="form-title">Đăng ký</h2><br>
-
+                    <?php
+                    if(isset($signup_check)){
+                        echo $signup_check;
+                    }
+                    ?>
                     <label for="signupEmail">Email <span style="color:red;">*</span></label>
                     <input type="email" id="signupEmail" name="signupEmail" placeholder="Email" ><br><br>
                     <!-- <small>Error message</small> -->
