@@ -13,6 +13,8 @@
         $login_check = $class->login($loginEmail,$loginPassword);
 
     }
+    
+
 ?>
 
 <!DOCTYPE html>
