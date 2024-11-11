@@ -7,7 +7,7 @@
 
     include './lib/session.php';
     Session::checkLogin();
-    include './lib/database1.php';
+    include_once './lib/database.php';
     include './helper/format.php';
 
 ?>

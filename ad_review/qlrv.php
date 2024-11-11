@@ -39,6 +39,7 @@
                     <th class="product-prop product-name">ID Người dùng</th>
                     <th class="product-prop product-name">Tên sách</th>
                     <th class="product-prop product-name">Nội dung</th>
+                    <th class="product-prop product-name">Số sao</th>
                     <th class="product-prop product-name">Ngày tạo</th>
                     <th class="product-prop product-name">Trạng thái</th>
                     <th class="product-prop product-name">Thao tác</th>
@@ -65,6 +66,7 @@
                             
                      ?></td>
                     <td><?php echo $fm->textShorten($result['Content'], 50) ?></td>
+                    <td><?php echo $book_result['star'] ?></td>
                     <td><?php echo date("d/m/Y", strtotime($result['Create_at'])) ?></td>
                     
                     <!-- Kiểm tra trạng thái và hiển thị với màu sắc tương ứng -->

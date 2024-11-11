@@ -4,10 +4,8 @@
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
-
-include '../lib/database.php';
-include '../helper/format.php';
-
+include_once dirname(__FILE__) . '/../lib/database.php';
+include_once dirname(__FILE__) . '/../helper/format.php';
 ?>
 
 <?php
