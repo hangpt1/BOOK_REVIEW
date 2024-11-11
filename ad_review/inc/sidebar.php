@@ -21,7 +21,7 @@
             <br>
             <a href="qlbv.php" class="link-box">Quản lý sách</a>
             <br>
-            <a href="./qlrv.php" class="link-box">Quản lý Review</a>
+            <a href="./qlrv.php" class="link-box">Quản lý đánh giá</a>
             <br>
             <a href="./qlcmt.php" class="link-box">Quản lý Bình luận</a>
             <br>

@@ -4,7 +4,6 @@
     include './inc/sidebar.php';
     include '../classes/book.php';
     include '../classes/topic.php';
-    
     include_once '../helper/format.php';
     
 ?>
@@ -42,8 +41,6 @@
                     <th class="product-prop product-time">Năm xuất bản</th>
                     <th class="product-prop product-name">Nội dung</th>
                     <th class="product-prop product-button">Chủ đề</th>
-                    <!-- <th class="product-prop product-time">Ngày tạo</th> -->
-                    
                     <th class="product-prop product-button">Xóa</th>
                     <th class="product-prop product-button">Sửa</th>
                 </tr>
@@ -68,12 +65,14 @@
                     <td><?php 
                         $tp = new Topic();
                         $tp_list = $tp->showTopic();
-                        $tp_result = $tp_list->fetch_assoc();
-                        if ($result['Topic'] ==$tp_result['TopicID']){
-                            echo $tp_result['Topicname'];
+                        // Duyệt qua tất cả các topic để tìm topic phù hợp
+                        while($tp_result = $tp_list->fetch_assoc()) {
+                            if ($result['Topic'] == $tp_result['TopicID']){
+                                echo $tp_result['Topicname'];
+                                break;
+                            }
                         }
-                            
-                     ?></td>
+                    ?></td>
                     <td><a href="book_edit.php?BookID=<?php echo $result['BookID']?>"><button class="btn">Sửa</button></a></td>
                     <td><a href="?BookID=<?php echo $result['BookID']?>"><button class="btn">Xóa</button></a></td>
                     
