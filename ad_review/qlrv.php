@@ -48,7 +48,7 @@
 
             <tbody>
                 <?php
-                    $rv_list = $rv->showReview();
+                    $rv_list = $rv->showReview_ad();
                     if($rv_list) {
                         while($result = $rv_list->fetch_assoc()) {
                 ?>
@@ -60,9 +60,18 @@
                         $book_list = $book->showBook();
 
                         $book_result = $book_list->fetch_assoc();
+                        
                         if ($result['BookID'] ==$book_result['BookID']){
+                            
                             echo $book_result['Bookname'];
                         }
+                        // Thay vì lấy tất cả sách, chỉ lấy một sách theo BookID
+                        // $book_result = $book->getBookById($result['BookID']); 
+
+                        // if ($book_result) {
+                        //     echo $book_result['Bookname'];
+                        // } else {
+                        //     echo "Không tìm thấy sách";
                             
                      ?></td>
                     <td><?php echo $fm->textShorten($result['Content'], 50) ?></td>

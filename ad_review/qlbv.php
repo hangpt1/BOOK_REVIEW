@@ -25,10 +25,7 @@
             ?>
         <div class="search-wrapper">
             
-            <form class='search' action="qlbv.php" method="get">
-                    <input type="text" name="search" /> <br> <br>
-                    <input type="submit" name="OK" value="Tìm kiếm"/>
-            </form>
+            
             <a href="./motasach.php"><button class="btn">Thêm sách</button></a>
         </div>
         <table class="product-items">

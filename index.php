@@ -214,7 +214,7 @@
                                 <?php
                                 // TÌM ẢNH CỦA BOOK ĐƯỢC RV
                                 $rv = new Review();
-                                $rv_list = $rv->showReview();
+                                $rv_list = $rv->showReview_home();
                                 if($rv_list){
                                     $i=$rv_list->num_rows;
                                     while($result = $rv_list->fetch_assoc()){

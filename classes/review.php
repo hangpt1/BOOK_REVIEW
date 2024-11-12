@@ -16,8 +16,13 @@ include_once ($filepath . '/../helper/format.php');
             $this->db = new Database();
             // $this->fm = new Format();
         }
-        public function showReview(){
+        public function showReview_ad(){
             $query = "SELECT * FROM reviews order by ReviewID desc";
+            $result = $this->db->select($query);
+            return $result;
+        }
+        public function showReview_home(){
+            $query = "SELECT * FROM reviews WHERE Status = 'Đã duyệt' order by ReviewID desc";
             $result = $this->db->select($query);
             return $result;
         }

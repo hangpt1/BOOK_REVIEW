@@ -40,7 +40,7 @@
     </div>
     <div class="box posts">
         <?php
-        $rv_list = $rv->showReview();
+        $rv_list = $rv->showReview_ad();
         if($rv_list){
             $i=$rv_list->num_rows;
         ?>
