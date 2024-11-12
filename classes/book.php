@@ -186,8 +186,6 @@ include_once ($filepath . '/../helper/format.php');
             $result = $this->db->select($query);
             return $result;
         }
-        
-
         public function showRating($rating){
             $query = "SELECT b.BookID, b.Bookname, b.Author, b.Published_year, b.De, b.Topic, b.Img_product, 
                     r.ReviewID, r.UserID, r.Content, r.Create_at, cr.rate

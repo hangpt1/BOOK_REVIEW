@@ -13,9 +13,7 @@
     // Nếu như sever rq = post thì lấy dữ liệu
     if($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit']) )
     {
-    
         $addBook = $book->insertBook($_POST, $_FILES);
-
     }
 ?>
         <div class="main-content">

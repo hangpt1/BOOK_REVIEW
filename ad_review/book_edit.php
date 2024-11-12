@@ -15,7 +15,6 @@
     }else{
         $id = $_GET['BookID'];
     }
-
     if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['submit'])){
         $updateBook = $book->UpdateBook($_POST, $_FILES, $id);
         // dựa vào id để update

@@ -119,7 +119,7 @@
                                                             <div class="col">
                                                                 <div class="row">
                                                                     <h5 style="overflow: hidden;text-overflow: ellipsis;display: -webkit-box;-webkit-line-clamp: 3;-webkit-box-orient: vertical;" class="card-title link">
-                                                                        <a href="./bdetail.php"><?php echo $all_books_rs['Bookname'] ?></a>
+                                                                        <a href="bdetail.php?BookID=<?php echo $all_books_rs['BookID']?>"><?php echo $all_books_rs['Bookname'] ?></a>
                                                                     </h5>
                                                                 </div>
                                                                 <!-- <div class="r">
