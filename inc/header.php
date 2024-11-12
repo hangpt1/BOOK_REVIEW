@@ -41,17 +41,60 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
 
     <title>Home - Book Review</title>
-    
+    <script>
+        
+        
+    document.addEventListener('DOMContentLoaded', function() {
+        const topicSelect = document.getElementById('topicSelect');
+        const filterRating = document.getElementById('filterRating');
+
+        const searchForm = document.getElementById('searchForm');
+        const searchInput = document.getElementById('searchInput');
+
+        if (topicSelect) {
+            topicSelect.addEventListener('change', function() {
+                console.log('Topic selected:', this.value); // Log để kiểm tra giá trị được chọn
+                const selectedTopicID = this.value;
+                if (selectedTopicID) {
+                    window.location.href = `index.php?topic_id=${selectedTopicID}`;
+                }
+            });
+        }
+
+        if (filterRating) {
+            filterRating.addEventListener('change', function() {
+                const rating = this.value;
+                if (rating) {
+                    window.location.href = `index.php?rating=${rating}`;
+                }
+            });
+        }
+
+        
+
+        searchForm.addEventListener('submit', function(event) {
+            event.preventDefault(); // Ngừng hành động mặc định của form (không tải lại trang)
+
+            const searchQuery = searchInput.value.trim(); // Lấy giá trị tìm kiếm và loại bỏ khoảng trắng thừa
+            
+            window.location.href = `index.php?text=${searchQuery}`;
+            
+        });
+
+
+    });
+</script>
 </head>
 <body>
+
     <div class="nav_wrap">
         <div class="grid-container">
             <div class="header">
                 <ul class="logo">
-                    <img src="./asset/logo/logo.png" alt="logo">
+                    <a href="index.php"><img src="./asset/logo/logo.png" alt="logo"></a>
                 </ul>
-                <form class="d-flex" role="search">
-                    <input class="form-control me-3" type="search" placeholder="Bạn tìm kiếm ở đây nha..." aria-label="Tìm kiếm">
+                <form class="d-flex" role="search" id="searchForm">
+                    <input class="form-control me-3" type="search" placeholder="Bạn tìm kiếm ở đây nha..." aria-label="Tìm kiếm" id="searchInput">
                     <button class="btn btn-outline-success" type="submit">Tìm kiếm</button>
                 </form>
                 <ul class="nav_ul">

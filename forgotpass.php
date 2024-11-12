@@ -39,7 +39,7 @@
                 ?>
                 <label for="loginEmail_forgoted">Email <span style="color:red;">*</span></label>
                 <input type="email" id="loginEmail_forgoted" name="loginEmail_forgoted" placeholder="Email" ><br><br>
-                <button type="submit"  class="button-form" name="loginEmail_forgoted">Kiểm tra</button>
+                <button type="submit"  class="button-form" name="submit">Kiểm tra</button>
                 <div class="form-control">
                     <p>Chưa có tài khoản? <a href="./signup.php" id="showRegisterForm">Đăng ký</a></p>
                 </div>

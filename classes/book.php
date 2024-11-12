@@ -174,8 +174,71 @@ include_once ($filepath . '/../helper/format.php');
 
         }
 
+        public function showBookByTopic($topic_id) {
+            $query = "SELECT * FROM books WHERE Topic = '$topic_id'";
+            $result = $this->db->select($query);
+            return $result;
+        }
+
+        public function showSearchByText($text) {
+            // Thêm ký tự % vào trước và sau $text để tìm kiếm bất kỳ chuỗi nào chứa $text
+            $query = "SELECT * FROM books WHERE Bookname LIKE '%$text%'";
+            $result = $this->db->select($query);
+            return $result;
+        }
         
+
+        public function showRating($rating){
+            $query = "SELECT b.BookID, b.Bookname, b.Author, b.Published_year, b.De, b.Topic, b.Img_product, 
+                    r.ReviewID, r.UserID, r.Content, r.Create_at, cr.rate
+            FROM books AS b
+            JOIN reviews AS r ON b.BookID = r.BookID
+            JOIN comment_rating AS cr ON r.ReviewID = cr.CommentID
+            WHERE cr.rate = '$rating'";
+            $result = $this->db->select($query);
+            return $result;
+        }
+
+        public function showBookByTopicAndRating($topic_id, $rating){
+            $query = "
+            SELECT b.BookID, b.Bookname, b.Author, b.Published_year, b.De, b.Topic, b.Img_product, 
+                 r.ReviewID, r.UserID, r.Content, r.Create_at, cr.rate
+          FROM books AS b
+          JOIN reviews AS r ON b.BookID = r.BookID
+          JOIN comment_rating AS cr ON r.ReviewID = cr.CommentID
+          WHERE b.Topic = '$topic_id' AND cr.rate = '$rating'";
+
+          $result = $this->db->select($query);
+            return $result;
+        }
+
+        public function myselfReview($idUser){
+            $query = "SELECT b.BookID, b.Bookname, b.Author, b.Published_year, b.De, b.Topic, b.Img_product, 
+            r.ReviewID, r.UserID, r.Content, r.Create_at, cr.rate
+                FROM books AS b
+                JOIN reviews AS r ON b.BookID = r.BookID
+                JOIN comment_rating AS cr ON r.ReviewID = cr.CommentID
+                WHERE cr.UserID = '$idUser'";
+                $result = $this->db->select($query);
+                return $result;
+        }
+
+        public function myselfNotReview() {
+            $query = "SELECT b.BookID, b.Bookname, b.Author, b.Published_year, b.De, b.Topic, b.Img_product
+                      FROM books AS b
+                      LEFT JOIN reviews AS r ON b.BookID = r.BookID
+                      LEFT JOIN comment_rating AS cr ON r.ReviewID = cr.CommentID
+                      WHERE cr.UserID IS NULL";
+                      
+            $result = $this->db->select($query);
+            return $result;
+        }
+        
+
     }
+
+        
+    
 
 
     

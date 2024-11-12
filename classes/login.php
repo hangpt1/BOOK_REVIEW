@@ -83,9 +83,10 @@
                 // Nếu có thì chuyển đến trang nhập mk mới
                 if($result != false){
                     $value = $result->fetch_assoc();
-                    Session::set( 'loginEmail_forgoted', $value['loginEmail_forgoted']);
-                    $alert = "<span style='color:green;!important' class='success'>Hãy đổi mật khẩu</span>";
-                    return $alert . "<br>" . "<br>";
+                    
+                    Session::set( 'email', $value['Email']);
+                    
+                    // $alert = "<span style='color:green;!important' class='success'>Hãy đổi mật khẩu</span>";
                     header('Location: newpass.php');
                     exit(); 
                     
@@ -96,12 +97,13 @@
             }   
         }
         public function newpass($newPassword) {
+            
         // Kiểm tra xem có session email hay không
-        if (!isset($loginEmail_forgoted)) {
+        if (!isset($_SESSION['email'])) {
             echo "Phiên làm việc đã hết hạn. Vui lòng thử lại.";
             return;
         }
-
+        $email = $_SESSION['email'];
 
     
     // Kiểm tra mật khẩu mới có rỗng không
@@ -112,16 +114,14 @@
         }
 
     // Mã hóa mật khẩu mới
-    $hashedPassword = password_hash($newPassword, PASSWORD_DEFAULT);
+    $hashedPassword = $newPassword /**password_hash($newPassword, PASSWORD_DEFAULT)*/;
 
     // Cập nhật mật khẩu trong cơ sở dữ liệu
-    $query = "UPDATE users SET Pass = '$hashedPassword' WHERE Email = '$loginEmail_forgoted'";
-    $update_row = $this->db->update($query);
-
-    if ($update_row) {
+    $query = "UPDATE users SET Pass = '$hashedPassword' WHERE Email = '$email'";
+    if ($this->db->update($query)) {
         // Xóa session sau khi thay đổi mật khẩu thành công
-        unset($_SESSION['reset_email']);
-        echo "Mật khẩu của bạn đã được thay đổi thành công.";
+        unset($_SESSION['email']);
+        header('Location: index.php');
     } else {
         echo "Đã xảy ra lỗi. Vui lòng thử lại.";
     }
