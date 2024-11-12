@@ -137,66 +137,8 @@
                                     }
                                     ?>
                            
-                            <?php
-                                if(isset($_GET['star'])){
-                                    $star = $_GET['star'];
+                           
                                     
-                                    $star_of_book = $book->getBookByTopic($star);
-                                    if($star_of_book){
-                                        while($star_of_book_rs = $star_of_book->fetch_assoc()){
-                                            // $i--;
-                                        ?>
-                                        <!-- SACH -->
-                                        <div class="col-3">
-                                        <div class="card  " style="width: 100%; height:320px">
-                                            <img class="py-3" style="width: 100%; height: 100%; object-fit: cover;" src="ad_review/uploads/<?php echo $star_of_book_rs['Img_product'] ?>">
-                                            <div class="card-body">
-                                                <div class="col">
-                                                    <div class="row">
-                                                        <h5 style="overflow: hidden;text-overflow: ellipsis;display: -webkit-box;-webkit-line-clamp: 3;-webkit-box-orient: vertical;" class="card-title link" class="card-title"><a href="./bdetail.php" ><?php echo $star_of_book_rs['Bookname'] ?></a></h5>
-                                                    </div>
-                                                    <!-- <div class="r">
-                                                        <p class="text-success"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><br></p>
-                                                    </div> -->
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                <?php
-                                    } 
-                                }
-                                    }else {
-                                        // Hiển thị tất cả sách nếu không chọn chủ đề
-                                        $all_books = $book->showBook();
-                                        if ($all_books) {
-                                            while ($all_books_rs = $all_books->fetch_assoc()) {
-                                    ?>
-                                                <!-- SACH -->
-                                                <div class="col-3">
-                                                    <div class="card" style="width: 100%; height:320px">
-                                                        <img class="py-3" style="width: 100%; height: 100%; object-fit: cover;" src="ad_review/uploads/<?php echo $all_books_rs['Img_product'] ?>">
-                                                        <div class="card-body">
-                                                            <div class="col">
-                                                                <div class="row">
-                                                                    <h5 style="overflow: hidden;text-overflow: ellipsis;display: -webkit-box;-webkit-line-clamp: 3;-webkit-box-orient: vertical;" class="card-title link">
-                                                                        <a href="./bdetail.php"><?php echo $all_books_rs['Bookname'] ?></a>
-                                                                    </h5>
-                                                                </div>
-                                                                <!-- <div class="r">
-                                                                    <p class="text-success">
-                                                                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><br>
-                                                                    </p>
-                                                                </div> -->
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                    <?php
-                                            }
-                                        }
-                                    }
-                                    ?>
 
                         
 
