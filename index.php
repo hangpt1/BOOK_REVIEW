@@ -1,22 +1,14 @@
 <?php
     error_reporting(E_ALL);
     ini_set('display_errors', 1);
-    include_once dirname(__FILE__) . '/classes/book.php';
-    include_once dirname(__FILE__) . '/classes/topic.php';
-    include_once dirname(__FILE__) . '/classes/review.php';
-
     include_once dirname(__FILE__) . '/inc/header.php';
 ?>  
 <?php
-    $book = new Book();
-    $fm = new Format();
     if(isset($_GET['BookID'])){
         $id = $_GET['BookID'];
     }
 ?> 
 <?php
-   
-    $fm = new Format();
     if(isset($_GET['ReviewID'])){
         $id = $_GET['ReviewID'];
     }
@@ -32,37 +24,33 @@
                 <nav class="navbar navbar-expand-lg">
                     <div class="container-fluid hover">
                         <a class="navbar-brand" href="#">Lọc theo</a>
+                        
                         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                         </button>
                         <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                                <select class="form-select" aria-label="Default select example">
-                                    <option selected>Tất cả</option>
-                                    <option value="1">Cuốn sách liên quan</option>
-                                    <option value="3">Cuốn sách tải lên gần đây</option>
-                                </select>
-
                                 <!-- Chủ đề -->
-                                <select class="form-select mx-2" aria-label="Default select example">
+                                <form method="GET" action="">
+                                <select style="width: 150px;" class="form-select mx-2" aria-label="Default select example" name="Topic" onchange="this.form.submit()">
                                     <option selected>Chủ đề</option>
-                                    <option value="1">Tiểu Thuyết</option>
-                                    <option value="2">Tiểu Thuyết</option>
-                                    <option value="3">Lịch sử</option>
-                                    <option value="3">Kinh tế</option>
-                                    <option value="3">Lịch sử</option>
-                                    <option value="3">Khoa học</option>
-                                    <option value="3">Kinh Dị</option>
+                                    <option name="1" value="1">Self_Help</option>
+                                    <option name="2" value="2">Kinh tế</option>
+                                    <option name="3" value="3">Tiểu Thuyết</option>
+                                    <option name="4" value="4">Lịch sử</option>
+                                    <option name="5" value="5">Khoa học</option>
+                                    <option name="6" value="6">Kinh Dị</option>
                                 </select>
+                                </form>
                                 <!-- số sao -->
-                                <select class="form-select" aria-label="Default select example">
+                                <select style="width: 150px;" class="form-select mx-3" aria-label="Default select example" name="star" onchange="this.form.submit()">
                                     <option selected>Số sao</option>
-                                    <option value="1">5</option>
-                                    <option value="2">4</option>
-                                    <option value="3">3</option>
-                                    <option value="3">2</option>
-                                    <option value="3">1</option>
+                                    <option name="5" value="1">5</option>
+                                    <option name="4" value="2">4</option>
+                                    <option name="3" value="3">3</option>
+                                    <option name="2" value="3">2</option>
+                                    <option name="1" value="3">1</option>
                                 </select>
                                 
                                 
@@ -88,41 +76,132 @@
                     <div class="col-8">
                         <!-- dòng 1 -->
                         <div class="row py-1">
-                            <!-- SÁCH 1 -->
-                                <?php
-                                    $book_list = $book->showBook();
-                                    if($book_list){
-                                        $i=$book_list->num_rows;
-                                        while($result = $book_list->fetch_assoc()){
-                                            $i--;
-                                    ?>
-                            <div class="col-3">
-                                   
-                                <div class="card  " style="width: 100%; height:320px">
-                                
-                                    <img class="py-3" style="width: 100%; height: 100%; object-fit: cover;" src="ad_review/uploads/<?php echo $result['Img_product'] ?>">
-                                    <div class="card-body">
-                                        <div class="col">
-                                            <div class="row">
-                                                <h5 style="overflow: hidden;text-overflow: ellipsis;display: -webkit-box;-webkit-line-clamp: 3;-webkit-box-orient: vertical;" class="card-title link" class="card-title"><a href="./bdetail.php" ><?php echo $result['Bookname'] ?></a></h5>
-                                            </div>
-                                            <div class="r">
-                                                <p class="text-success"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><br></p>
+                            <?php
+                                if(isset($_GET['Topic'])){
+                                    $topic = $_GET['Topic'];
+                                    
+                                    $book_in_topic = $book->getBookByTopic($topic);
+                                    if($book_in_topic){
+                                        while($book_in_topic_rs = $book_in_topic->fetch_assoc()){
+                                            // $i--;
+                                        ?>
+                                        <!-- SACH -->
+                                        <div class="col-3">
+                                        <div class="card  " style="width: 100%; height:320px">
+                                            <img class="py-3" style="width: 100%; height: 100%; object-fit: cover;" src="ad_review/uploads/<?php echo $book_in_topic_rs['Img_product'] ?>">
+                                            <div class="card-body">
+                                                <div class="col">
+                                                    <div class="row">
+                                                        <h5 style="overflow: hidden;text-overflow: ellipsis;display: -webkit-box;-webkit-line-clamp: 3;-webkit-box-orient: vertical;" class="card-title link" class="card-title"><a href="./bdetail.php" ><?php echo $book_in_topic_rs['Bookname'] ?></a></h5>
+                                                    </div>
+                                                    <!-- <div class="r">
+                                                        <p class="text-success"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><br></p>
+                                                    </div> -->
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                                
-                            </div>
-                            <?php
 
-                    
-                                    }
+                                <?php
+                                    } 
                                 }
-                                ?>
-                            
+                                    }else {
+                                        // Hiển thị tất cả sách nếu không chọn chủ đề
+                                        $all_books = $book->showBook();
+                                        if ($all_books) {
+                                            while ($all_books_rs = $all_books->fetch_assoc()) {
+                                    ?>
+                                                <!-- SACH -->
+                                                <div class="col-3">
+                                                    <div class="card" style="width: 100%; height:320px">
+                                                        <img class="py-3" style="width: 100%; height: 100%; object-fit: cover;" src="ad_review/uploads/<?php echo $all_books_rs['Img_product'] ?>">
+                                                        <div class="card-body">
+                                                            <div class="col">
+                                                                <div class="row">
+                                                                    <h5 style="overflow: hidden;text-overflow: ellipsis;display: -webkit-box;-webkit-line-clamp: 3;-webkit-box-orient: vertical;" class="card-title link">
+                                                                        <a href="./bdetail.php"><?php echo $all_books_rs['Bookname'] ?></a>
+                                                                    </h5>
+                                                                </div>
+                                                                <!-- <div class="r">
+                                                                    <p class="text-success">
+                                                                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><br>
+                                                                    </p>
+                                                                </div> -->
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                    <?php
+                                            }
+                                        }
+                                    }
+                                    ?>
+                           
+                            <?php
+                                if(isset($_GET['star'])){
+                                    $star = $_GET['star'];
+                                    
+                                    $star_of_book = $book->getBookByTopic($star);
+                                    if($star_of_book){
+                                        while($star_of_book_rs = $star_of_book->fetch_assoc()){
+                                            // $i--;
+                                        ?>
+                                        <!-- SACH -->
+                                        <div class="col-3">
+                                        <div class="card  " style="width: 100%; height:320px">
+                                            <img class="py-3" style="width: 100%; height: 100%; object-fit: cover;" src="ad_review/uploads/<?php echo $star_of_book_rs['Img_product'] ?>">
+                                            <div class="card-body">
+                                                <div class="col">
+                                                    <div class="row">
+                                                        <h5 style="overflow: hidden;text-overflow: ellipsis;display: -webkit-box;-webkit-line-clamp: 3;-webkit-box-orient: vertical;" class="card-title link" class="card-title"><a href="./bdetail.php" ><?php echo $star_of_book_rs['Bookname'] ?></a></h5>
+                                                    </div>
+                                                    <!-- <div class="r">
+                                                        <p class="text-success"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><br></p>
+                                                    </div> -->
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                <?php
+                                    } 
+                                }
+                                    }else {
+                                        // Hiển thị tất cả sách nếu không chọn chủ đề
+                                        $all_books = $book->showBook();
+                                        if ($all_books) {
+                                            while ($all_books_rs = $all_books->fetch_assoc()) {
+                                    ?>
+                                                <!-- SACH -->
+                                                <div class="col-3">
+                                                    <div class="card" style="width: 100%; height:320px">
+                                                        <img class="py-3" style="width: 100%; height: 100%; object-fit: cover;" src="ad_review/uploads/<?php echo $all_books_rs['Img_product'] ?>">
+                                                        <div class="card-body">
+                                                            <div class="col">
+                                                                <div class="row">
+                                                                    <h5 style="overflow: hidden;text-overflow: ellipsis;display: -webkit-box;-webkit-line-clamp: 3;-webkit-box-orient: vertical;" class="card-title link">
+                                                                        <a href="./bdetail.php"><?php echo $all_books_rs['Bookname'] ?></a>
+                                                                    </h5>
+                                                                </div>
+                                                                <!-- <div class="r">
+                                                                    <p class="text-success">
+                                                                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><br>
+                                                                    </p>
+                                                                </div> -->
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                    <?php
+                                            }
+                                        }
+                                    }
+                                    ?>
+
+                        
 
                         </div>
+                        
                         
                 
                     </div>

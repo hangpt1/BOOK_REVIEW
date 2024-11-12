@@ -1,9 +1,33 @@
 <?php
-    include './lib/session.php';
-    Session::checkSession();
-    include './classes/user.php';
+    $filepath = realpath(dirname(__FILE__));
+    include_once ($filepath . '/../lib/database.php');
+    include_once ($filepath . '/../lib/session.php');
+    include_once ($filepath . '/../helper/format.php');
+    Session::init();
+    include_once ($filepath . '/../classes/user.php');
+    include_once ($filepath . '/../classes/topic.php');
+    include_once ($filepath . '/../classes/book.php');
+    include_once ($filepath . '/../classes/review.php');
+    include_once ($filepath . '/../classes/cmt.php');
+
+   
 ?>
-<?php include './config/config.php'; 
+<?php 
+    include './config/config.php'; 
+
+    $db = new Database();
+    $fm = new Format();
+    $book = new Book();
+    $rv = new Review();
+    $cmt = new Comment();
+    $tp = new Topic();
+    $user = new Setting();
+
+
+
+
+
+
 
 ?>
 

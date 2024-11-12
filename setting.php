@@ -3,7 +3,7 @@
     include './inc/header.php';
 
 ?>
-
+<div class = "container mt-5">
 <div class="profile-section">
         <?php
             $setting = new Setting();
@@ -50,7 +50,7 @@
             </div>
         </form>
     </div>
-    
+ <div>
     
 
 

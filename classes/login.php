@@ -1,13 +1,14 @@
 
 <?php
+    include './lib/session.php';
+    Session::checkLogin();
+    // Lấy đường dẫn đúng của file
+    $filepath = realpath(dirname(__FILE__));
     ini_set('display_errors', 1);
     ini_set('display_startup_errors', 1);
     error_reporting(E_ALL);
-
-    include './lib/session.php';
-    Session::checkLogin();
-    include_once './lib/database.php';
-    include './helper/format.php';
+    include_once ($filepath . '/../lib/database.php');
+    include_once ($filepath . '/../helper/format.php');
 ?>
 <?php
 // use PHPMailer\PHPMailer\PHPMailer;
@@ -36,7 +37,7 @@
             $loginPassword = mysqli_real_escape_string($this->db->link, $loginPassword);
             // Nếu người dùng bỏ trống
             if (empty($loginEmail) || empty($loginPassword)){
-                $alert = "Bạn không được bỏ trống Email và Mật khẩu";
+                $alert = "<span style='color:red;!important' class='success'>Bạn không được bỏ trống</span>";
                 return $alert . "<br>" . "<br>";
             }else{
                 // Nếu như người dùng nhập đúng ký tự thì sẽ tiến hành check role và tài khoản
@@ -61,48 +62,71 @@
                         exit();
                     }
                 }else{
-                    $alert = 'Email hoặc mật khẩu không đúng';
+                    $alert = "<span style='color:red;!important' class='success'>Email hoặc mật khẩu không đúng</span>";
                     return $alert . "<br>" . "<br>";
                 }
             }
         }
 
 
-        // public function forgotpass($loginEmail_forgoted){
-        //     // Check xem có mail trong csdl không
-        //     $loginEmail_forgoted = $this->fm->validation($loginEmail_forgoted);
-        //     $loginEmail_forgoted = mysqli_real_escape_string($this->db->link, $loginEmail_forgoted);
-        //     if (empty($loginEmail_forgoted)){
-        //         $alert = "Bạn không được bỏ trống ";
-        //         return $alert . "<br>" . "<br>";
-        //     }else{
-        //         // nhập đúng thì gửi mã
-        //         $query = "SELECT * FROM users WHERE Email = '$loginEmail_forgoted' LIMIT 1";
-        //         $result = $this->db->update($query);
-        //         if ($result->num_rows > 0) {
-        //             // Tạo mã xác thực ngẫu nhiên
-        //             $code = rand(100000, 999999);
-            
-        //             // Lưu mã xác thực vào database  cột 'reset_code' trong bảng 'users')
-        //             $query = "UPDATE users SET reset_code = '$code' WHERE Email = '$loginEmail_forgoted";
-        //             $result = $this->db->select($query);
-                
-        //             // Gửi mã qua email
-        //             $subject = "Mã xác nhận đặt lại mật khẩu";
-        //             $message = "Mã xác nhận của bạn là: " . $code;
-        //             $headers = "From: no-reply@yourdomain.com";
-            
-        //             if (mail($loginEmail_forgoted, $subject, $message, $headers)) {
-        //                 echo "Mã xác nhận đã được gửi tới email của bạn.";
-        //             } else {
-        //                 echo "Đã xảy ra lỗi khi gửi email. Vui lòng thử lại.";
-        //             }
+        public function forgotpass($loginEmail_forgoted){
+            // Check xem có mail trong csdl không
+            $loginEmail_forgoted = $this->fm->validation($loginEmail_forgoted);
+            $loginEmail_forgoted = mysqli_real_escape_string($this->db->link, $loginEmail_forgoted);
+            if (empty($loginEmail_forgoted)){
+                $alert = "Bạn không được bỏ trống ";
+                return $alert . "<br>" . "<br>";
+            }else{
+                // nhập đúng thì kiểm tra email có trong csdl chưa
+                $query = "SELECT * FROM users WHERE Email = '$loginEmail_forgoted'";
+                $result = $this->db->select($query);
+                // Nếu có thì chuyển đến trang nhập mk mới
+                if($result != false){
+                    $value = $result->fetch_assoc();
+                    Session::set( 'loginEmail_forgoted', $value['loginEmail_forgoted']);
+                    $alert = "<span style='color:green;!important' class='success'>Hãy đổi mật khẩu</span>";
+                    return $alert . "<br>" . "<br>";
+                    header('Location: newpass.php');
+                    exit(); 
                     
-        //         }else {
-        //             echo "Email không tồn tại trong hệ thống.";
-        //         }
-        //     }   
-        // }
+                }else{
+                    $alert = "<span style='color:red;!important' class='success'>Bạn chưa có tài khoản, hãy đăng ký</span>";
+                    return $alert . "<br>" . "<br>";
+                }
+            }   
+        }
+        public function newpass($newPassword) {
+        // Kiểm tra xem có session email hay không
+        if (!isset($loginEmail_forgoted)) {
+            echo "Phiên làm việc đã hết hạn. Vui lòng thử lại.";
+            return;
+        }
+
+
+    
+    // Kiểm tra mật khẩu mới có rỗng không
+        $newPassword = $this->fm->validation($newPassword);
+        if (empty($newPassword)) {
+            echo "Mật khẩu mới không được để trống.";
+            return;
+        }
+
+    // Mã hóa mật khẩu mới
+    $hashedPassword = password_hash($newPassword, PASSWORD_DEFAULT);
+
+    // Cập nhật mật khẩu trong cơ sở dữ liệu
+    $query = "UPDATE users SET Pass = '$hashedPassword' WHERE Email = '$loginEmail_forgoted'";
+    $update_row = $this->db->update($query);
+
+    if ($update_row) {
+        // Xóa session sau khi thay đổi mật khẩu thành công
+        unset($_SESSION['reset_email']);
+        echo "Mật khẩu của bạn đã được thay đổi thành công.";
+    } else {
+        echo "Đã xảy ra lỗi. Vui lòng thử lại.";
+    }
+}
+
 
 
 

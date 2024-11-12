@@ -1,11 +1,12 @@
 
 <?php
-
+// Lấy đường dẫn đúng của file
+$filepath = realpath(dirname(__FILE__));
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
-include_once dirname(__FILE__) . '/../lib/database.php';
-include_once dirname(__FILE__) . '/../helper/format.php';
+include_once ($filepath . '/../lib/database.php');
+include_once ($filepath . '/../helper/format.php');
 ?>
 
 <?php
@@ -71,8 +72,29 @@ include_once dirname(__FILE__) . '/../helper/format.php';
             $query = "SELECT * FROM books WHERE BookID = '$id'";
             $result = $this->db->select($query);
             return $result;
-
         }
+        public function getBookByTopic($topic){
+            $query = "SELECT * FROM books WHERE Topic = '$topic'";
+            $result = $this->db->select($query);
+            return $result;
+        }
+        public function getBookBystar($bid){
+            $query = "SELECT 
+            BookID,
+            FLOOR(SUM(star) / COUNT(ReviewID)) AS average_star
+            FROM 
+                reviews
+            WHERE 
+                BookID = '$bid'
+            GROUP BY 
+                BookID";
+            $bid_rs = $this->db->select($query);
+            $query = "SELECT * FROM books WHERE average_star = '$bid_rs'";
+            $result = $this->db->select($query);
+            return $result;
+        }
+        
+        
         public function UpdateBook($data, $file,$id){
             $bookName = mysqli_real_escape_string($this->db->link, $data['bookName']);
             $author = mysqli_real_escape_string($this->db->link, $data['author']);

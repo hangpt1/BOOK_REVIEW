@@ -1,10 +1,14 @@
 
 <?php
- include './lib/session.php';
- include './lib/database.php';
- include_once './helper/format.php';
-//  include './helper/redirect.php';
- Session::checkSession();
+    $filepath = realpath(dirname(__FILE__));
+    ini_set('display_errors', 1);
+    ini_set('display_startup_errors', 1);
+    error_reporting(E_ALL);
+    include_once ($filepath . '/../lib/database.php');
+    include_once ($filepath . '/../lib/session.php');
+    include_once ($filepath . '/../helper/format.php');
+
+// Session::checkSession();
 ?>
 <?php
 class Setting {
@@ -14,7 +18,6 @@ class Setting {
     private $userData;
     private $error;
     private $success;
-
 
     // Constructor: Khởi tạo và kết nối cơ sở dữ liệu
     public function __construct() {
@@ -29,6 +32,14 @@ class Setting {
     }
     public function getSuccess() {
         return $this->success;
+    }
+    public function showUser() {
+        // Thay đổi câu truy vấn để lấy tất cả người dùng
+        $query = "SELECT Email, Username, Pass, Avatar FROM users";
+        $result = $this->db->select($query);
+    
+        // Trả về kết quả nếu có người dùng
+        return $result;
     }
     // Load dữ liệu người dùng từ cơ sở dữ liệu
     public function loadUserData() {

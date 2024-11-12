@@ -4,16 +4,19 @@
     ini_set('display_startup_errors', 1);
     error_reporting(E_ALL);
     include './classes/login.php';
+    
 ?>
 <?php
     $class = new login();
-    // Nếu như sever rq = post thì lấy dữ liệu
-    if($_SERVER['REQUEST_METHOD'] === 'POST')
-    {
-        $loginEmail_forgoted  = $_POST['loginEmail_forgoted'];
-        $result = $class->forgotpass($loginEmail_forgoted);
-       
+        // Kiểm tra nếu người dùng nhấn nút "Thay đổi" trên form
+    if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['newPassword'])) {
+        $newPassword = $_POST['newPassword'];
+        
+        // Gọi hàm newpass() để thay đổi mật khẩu
+        $class->newpass($newPassword);
     }
+    
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -31,15 +34,12 @@
         <center>
         <div class="form-container">
             <form id="forgotpassForm" class="form" action="" method="POST"  >
-                <h2 class="form-title">Quên mật khẩu</h2><br>
-                <?php
-                if(isset($result)){
-                    echo $result;
-                }
-                ?>
-                <label for="loginEmail_forgoted">Email <span style="color:red;">*</span></label>
-                <input type="email" id="loginEmail_forgoted" name="loginEmail_forgoted" placeholder="Email" ><br><br>
-                <button type="submit"  class="button-form" name="loginEmail_forgoted">Kiểm tra</button>
+                <h2 class="form-title">Mật khẩu mới</h2><br>
+               
+                
+                <label for="newPassword">Mật khẩu mới<span style="color:red;">*</span></label>
+                <input type="password" id="newPassword" name="newPassword" placeholder="Password" ><br><br>
+                <button type="submit" class="button-form" >Thay đổi</button>
                 <div class="form-control">
                     <p>Chưa có tài khoản? <a href="./signup.php" id="showRegisterForm">Đăng ký</a></p>
                 </div>
