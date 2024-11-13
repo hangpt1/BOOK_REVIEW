@@ -108,17 +108,7 @@ error_reporting(E_ALL);
                 </div>
             </div>
 
-            <div class="review-header">
-                <div class="image-container">
-                <a href="./bdetail.php"><img id="book-image" src="./image_book/Ai lấy miếng pho mát của tôi.jpg" alt="Ai lấy miếng pho mát của tôi"></a>
-                </div>
-                <div class="info-container">
-                    <h2 id="review-title">Tiêu đề: <strong><span>Bí quyết thành công và may mắn của Max</span></strong></h2>
-                    <p class="book-title">Tên Cuốn Sách: <span id="book-title">Bí mật của may mắn</span></p>
-                    <p class="author">Tác giả: <span id="author-name">Alex Rovira</span></p>
-                    <p class="genre">Thể loại: <span id="genre">Sách tự lực</span></p>
-                </div>
-            </div>
+            
 
             <div class="review-content">
                 <h2>Nội Dung Review</h2>
@@ -131,15 +121,39 @@ error_reporting(E_ALL);
                 
             </div>
 
-            <div class="comments-section">
-                <h2>Bình luận</h2>
-                <p>Vui lòng bình luận văn minh*</p>
-                <form action="#" method="POST" id="comment-form">
-                    <textarea id="comment" class="input" placeholder="Thêm bình luận của bạn" rows="1" required></textarea>
-                    <input type="submit" value="Đăng Bình Luận" class="submit">
-                </form>
+            <?php
+            if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['comment'])) {
+                $comment = $_POST['comment'];
+                $userID = Session::get('UserID'); // Lấy ID người dùng từ session hoặc sửa theo hệ thống của bạn
+                $rv = $rvDetail['ReviewID'];
 
-            </div>
+                // Chuẩn bị truy vấn SQL
+                $query = "INSERT INTO comments (UserID, ReviewID, Comment, Create_at) VALUES ($userID,$rv, $comment, date('Ymd H:i:s'))";
+                $stmt = $db->select($query);
+                $stmt->bind_param("iis", $userID, $bookID, $comment);
+                
+                // Thực thi truy vấn và kiểm tra kết quả
+                if ($stmt->execute()) {
+                    echo "success"; // Bình luận đã lưu thành công
+                } else {
+                    echo "error"; // Lỗi lưu bình luận
+                }
+            }
+            ?>
+            <form class='' action="" method="POST" enctype="multipart/form-data">
+                
+                <div class="comments-section">
+                    <h2>Bình luận</h2>
+                    <p>Vui lòng bình luận văn minh*</p>
+                    <div id="comments-container">
+                        </div>
+                        <form action="submit_comment.php" method="POST" id="comment-form">
+                            <textarea id="comment" name="comment" class="input" placeholder="Thêm bình luận của bạn" rows="1" required></textarea>
+                            <input type="submit" name="submit" class="submit" value="Bình luận" onclick="return confirmSubmission()">
+                        </form>
+
+                </div>
+            </form>
         </div>
 <?php
     include './inc/footer.php'

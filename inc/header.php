@@ -108,8 +108,7 @@
                     ?>
                     <img width="80%" id="user_img" class="user_img " src="<?php echo $user_infor['Avatar'] ?>" alt="User Avatar">
                     <ul id="user_content" class="user-content">
-                        <li class="user_login"><a href="?action=login">Đăng nhập</a></li>
-                        <li class="your_rv"><a href="#">Bài viết của bạn</a></li>
+                        
                         <?php
                             if(isset($_GET['action']) &&  $_GET['action'] =='logout'){
                                 Session::destroy();

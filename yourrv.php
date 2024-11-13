@@ -2,6 +2,26 @@
 <?php
     include './inc/header.php';
 ?>     
+<?php
+    error_reporting(E_ALL);
+    ini_set('display_errors', 1);
+    include_once dirname(__FILE__) . '/classes/book.php';
+    include_once dirname(__FILE__) . '/classes/topic.php';
+    include_once dirname(__FILE__) . '/classes/review.php';
+
+    include_once dirname(__FILE__) . '/inc/header.php';
+?>  
+<?php
+    $book = new Book();
+    $topics = new Topic();
+    $fm = new Format();
+    if(isset($_GET['BookID'])){
+        $id = $_GET['BookID'];
+    }
+
+    $book_list_left = $book->myselfReview($_SESSION['UserID']);
+    $book_list_right = $book->myselfNotReview();
+?> 
     <div class="container main_content">
 
         <!-- Bộ lọc -->
@@ -65,17 +85,25 @@
                 
                 <div class="row">
                     
-                    <div class="col-8">
+                <div class="col-8">
                         <!-- dòng 1 -->
                         <div class="row py-1">
                             <!-- SÁCH 1 -->
+                                <?php
+                                    if($book_list_left){
+                                        $i=$book_list_left->num_rows;
+                                        while($result = $book_list_left->fetch_assoc()){
+                                            $i--;
+                                    ?>
                             <div class="col-3">
-                                <div class="card " style="width: 100%; height:320px">
-                                    <img class="py-3" src="./image_book/Khi lỗi thuộc về những vì sao.jpg" class="card-img-top" alt="Ai lấy miếng pho mát của tôi">
+                                   
+                                <div class="card  " style="width: 100%; height:320px">
+                                
+                                    <img class="py-3" style="width: 100%; height: 100%; object-fit: cover;" src="ad_review/uploads/<?php echo $result['Img_product'] ?>">
                                     <div class="card-body">
                                         <div class="col">
                                             <div class="row">
-                                                <h5 style="overflow: hidden;text-overflow: ellipsis;display: -webkit-box;-webkit-line-clamp: 3;-webkit-box-orient: vertical;" class="card-title link" class="card-title"><a href="./rvdetail.php" >Ai lấy miếng pho mát của tôi</a></h5>
+                                                <h5 style="overflow: hidden;text-overflow: ellipsis;display: -webkit-box;-webkit-line-clamp: 3;-webkit-box-orient: vertical;" class="card-title link" class="card-title"><a href="./bdetail.php" ><?php echo $result['Bookname'] ?></a></h5>
                                             </div>
                                             <div class="r">
                                                 <p class="text-success"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><br></p>
@@ -83,152 +111,72 @@
                                         </div>
                                     </div>
                                 </div>
+                                
                             </div>
-                            <!-- SÁCH 2 -->
-                            <div class="col-3">
-                                <div class="card " style="width: 100%; height:320px">
-                                    <img class="py-3" src="./image_book/Khi lỗi thuộc về những vì sao.jpg" class="card-img-top" alt="Ai lấy miếng pho mát của tôi">
-                                    <div class="card-body">
-                                        <div class="col">
-                                            <div class="row">
-                                                <h5 style="overflow: hidden;text-overflow: ellipsis;display: -webkit-box;-webkit-line-clamp: 3;-webkit-box-orient: vertical;" class="card-title link" class="card-title"><a href="./rvdetail.php" >Ai lấy miếng pho mát của tôi</a></h5>
-                                            </div>
-                                            <div class="r">
-                                                <p class="text-success"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><br></p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- SÁCH 3 -->
-                            <div class="col-3">
-                                <div class="card " style="width: 100%; height:320px">
-                                    <img class="py-3" src="./image_book/Khi lỗi thuộc về những vì sao.jpg" class="card-img-top" alt="Ai lấy miếng pho mát của tôi">
-                                    <div class="card-body">
-                                        <div class="col">
-                                            <div class="row">
-                                                <h5 style="overflow: hidden;text-overflow: ellipsis;display: -webkit-box;-webkit-line-clamp: 3;-webkit-box-orient: vertical;" class="card-title link" class="card-title"><a href="./rvdetail.php" >Ai lấy miếng pho mát của tôi</a></h5>
-                                            </div>
-                                            <div class="r">
-                                                <p class="text-success"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><br></p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- SÁCH 4 -->
-                            <div class="col-3">
-                                <div class="card " style="width: 100%; height:320px">
-                                    <img class="py-3" src="./image_book/Khi lỗi thuộc về những vì sao.jpg" class="card-img-top" alt="Ai lấy miếng pho mát của tôi">
-                                    <div class="card-body">
-                                        <div class="col">
-                                            <div class="row">
-                                                <h5 style="overflow: hidden;text-overflow: ellipsis;display: -webkit-box;-webkit-line-clamp: 3;-webkit-box-orient: vertical;" class="card-title link" class="card-title"><a href="./rvdetail.php" >Ai lấy miếng pho mát của tôi</a></h5>
-                                            </div>
-                                            <div class="r">
-                                                <p class="text-success"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><br></p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                            <?php
+
+                    
+                                    }
+                                }
+                                ?>
                             
-                           
-                      
+
                         </div>
-                        <div class="row py-1">
-                            <!-- SÁCH 1 -->
-                            <div class="col-3">
-                                <div class="card " style="width: 100%; height:320px">
-                                    <img class="py-3" src="./image_book/Khi lỗi thuộc về những vì sao.jpg" class="card-img-top" alt="Ai lấy miếng pho mát của tôi">
-                                    <div class="card-body">
-                                        <div class="col">
-                                            <div class="row">
-                                                <h5 style="overflow: hidden;text-overflow: ellipsis;display: -webkit-box;-webkit-line-clamp: 3;-webkit-box-orient: vertical;" class="card-title link" class="card-title"><a href="./rvdetail.php" >Ai lấy miếng pho mát của tôi</a></h5>
-                                            </div>
-                                            <div class="r">
-                                                <p class="text-success"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><br></p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- SÁCH 2 -->
-                            <div class="col-3">
-                                <div class="card " style="width: 100%; height:320px">
-                                    <img class="py-3" src="./image_book/Khi lỗi thuộc về những vì sao.jpg" class="card-img-top" alt="Ai lấy miếng pho mát của tôi">
-                                    <div class="card-body">
-                                        <div class="col">
-                                            <div class="row">
-                                                <h5 style="overflow: hidden;text-overflow: ellipsis;display: -webkit-box;-webkit-line-clamp: 3;-webkit-box-orient: vertical;" class="card-title link" class="card-title"><a href="./rvdetail.php" >Ai lấy miếng pho mát của tôi</a></h5>
-                                            </div>
-                                            <div class="r">
-                                                <p class="text-success"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><br></p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- SÁCH 3 -->
-                            <div class="col-3">
-                                <div class="card " style="width: 100%; height:320px">
-                                    <img class="py-3" src="./image_book/Khi lỗi thuộc về những vì sao.jpg" class="card-img-top" alt="Ai lấy miếng pho mát của tôi">
-                                    <div class="card-body">
-                                        <div class="col">
-                                            <div class="row">
-                                                <h5 style="overflow: hidden;text-overflow: ellipsis;display: -webkit-box;-webkit-line-clamp: 3;-webkit-box-orient: vertical;" class="card-title link" class="card-title"><a href="./rvdetail.php" >Ai lấy miếng pho mát của tôi</a></h5>
-                                            </div>
-                                            <div class="r">
-                                                <p class="text-success"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><br></p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- SÁCH 4 -->
-                            <div class="col-3">
-                                <div class="card " style="width: 100%; height:320px">
-                                    <img class="py-3" src="./image_book/Khi lỗi thuộc về những vì sao.jpg" class="card-img-top" alt="Ai lấy miếng pho mát của tôi">
-                                    <div class="card-body">
-                                        <div class="col">
-                                            <div class="row">
-                                                <h5 style="overflow: hidden;text-overflow: ellipsis;display: -webkit-box;-webkit-line-clamp: 3;-webkit-box-orient: vertical;" class="card-title link" class="card-title"><a href="./rvdetail.php" >Ai lấy miếng pho mát của tôi</a></h5>
-                                            </div>
-                                            <div class="r">
-                                                <p class="text-success"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><br></p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                           
-                      
-                        </div>
+                        
                 
                     </div>
                     <div class="col-4">
-                        <div class="row py-1">
-                            <div class="card" style="width: 400px">
-                                <img class="py-3" src="./image_book/Bạn không thông minh lắm đâu.jpg" class="card-img-top" alt="Bạn không thông minh lắm đâu.jpg">
-                                <div class="card-body">
-                                    <h5 style="overflow: hidden;text-overflow: ellipsis;display: -webkit-box;-webkit-line-clamp: 1;-webkit-box-orient: vertical;" class="card-title" class="card-title">Bạn không thông minh lắm đâu</h5>
-                                    <p style="overflow: hidden;text-overflow: ellipsis;display: -webkit-box;-webkit-line-clamp: 3;-webkit-box-orient: vertical;" class="card-title" class="card-text">Đây là nội dung bài đăng Đây là nội dung bài đăng Đây là nội dung bài đăng Đây là nội dung bài đăng Đây là nội dung bài đăng</p>
-                                    <small>3 giờ trước</small><br>
-                                    <a href="#" class="btn btn-primary">Xem thêm</a>
+
+                       
+                    <div class="row py-1">
+                                <div class="card" style="width: 400px">
+                                <?php
+                                // TÌM ẢNH CỦA BOOK ĐƯỢC RV
+                              
+                                if($book_list_right){
+                                    $i=$book_list_right->num_rows;
+                                    while($result = $book_list_right->fetch_assoc()){
+                                        $i--;
+                                ?>
+                                    <div class="card-body">
+                                        
+                                        <!-- ẢNH SÁCH -->
+                                        <img class="py-3" src="ad_review/uploads/<?php
+                                           
+                                            // Duyệt qua tất cả các topic để tìm topic phù hợp
+                                            while($book_result = $book_list_left->fetch_assoc()) {
+                                                if ($result['BookID'] == $book_result['BookID']){
+                                                    echo $book_result['Img_product'];
+                                                    break;
+                                                }
+                                            }
+                                        ?>" class="card-img-top" alt="Bạn không thông minh lắm đâu.jpg">
+                                        <!-- TÊN SÁCH -->
+                                        <h5 class="card-title">
+                                        <?php
+                                            
+                                            // Duyệt qua tất cả các topic để tìm topic phù hợp
+                                            while($book_result = $book_list_left->fetch_assoc()) {
+                                                if ($result['BookID'] == $book_result['BookID']){
+                                                    echo $book_result['Bookname'];
+                                                    break;
+                                                }
+                                            }
+                                        ?>
+                                        </h5>
+                                        <p style="overflow: hidden;text-overflow: ellipsis;display: -webkit-box;-webkit-line-clamp: 3;-webkit-box-orient: vertical;" class="card-title" class="card-text"><?php echo $result['Content']?></p>
+                                        <small><?php echo $result['Create_at']?></small><br>
+                                        <a href="./rvdetail.php" class="btn btn-primary">Xem thêm</a>
+                                        <?php
+                                                }
+                                            }
+                                            ?>
+                                    </div>
+
+                                    
                                 </div>
-                            </div>
-                        </div>
-                        <div class="row py-1">
-                            <div class="card" style="width: 400px">
-                                <img class="py-3" src="./image_book/Bạn không thông minh lắm đâu.jpg" class="card-img-top" alt="Bạn không thông minh lắm đâu.jpg">
-                                <div class="card-body">
-                                    <h5 style="overflow: hidden;text-overflow: ellipsis;display: -webkit-box;-webkit-line-clamp: 1;-webkit-box-orient: vertical;" class="card-title" class="card-title">Bạn không thông minh lắm đâu</h5>
-                                    <p style="overflow: hidden;text-overflow: ellipsis;display: -webkit-box;-webkit-line-clamp: 3;-webkit-box-orient: vertical;" class="card-title" class="card-text">Đây là nội dung bài đăng Đây là nội dung bài đăng Đây là nội dung bài đăng Đây là nội dung bài đăng Đây là nội dung bài đăng</p>
-                                    <small>3 giờ trước</small><br>
-                                    <a href="#" class="btn btn-primary">Xem thêm</a>
-                                </div>
-                            </div>
+                                
+
                         </div>
                         
                     </div>

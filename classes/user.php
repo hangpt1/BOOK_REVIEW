@@ -134,15 +134,14 @@ class Setting {
             }
         }
     }
-    // public function getAvatar($userId) {
-    //     $query = "SELECT Avatar FROM users WHERE UserID = '$userId'";
-    //     $result = $this->db->select($query);
-    //     if ($result && $row = $result->fetch_assoc()) {
-    //         return $row['Avatar'];
-    //     }
-    //     return './asset/logo/default_avatar.png'; // Đường dẫn ảnh mặc định
-    // }
-    
+    public function getUserById($userId) {
+        $query = "SELECT * FROM users WHERE UserID = ?";
+        $stmt = $this->db->select($query);
+        $stmt->bind_param("i", $userId);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result;
+    }
 }
 
 ?>

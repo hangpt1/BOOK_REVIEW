@@ -120,8 +120,27 @@ include_once ($filepath . '/../helper/format.php');
             return 0; // Nếu không có đánh giá nào, trả về 0
         }
 
+
+    //     // Lấy danh sách review dựa trên BookID
+    // public function getRVfrBook($bookId) {
+    //     $query = "SELECT * FROM reviews WHERE BookID ='$bookId'";
+    //     $stmt = $this->db->select($query);
+    //     $stmt->bind_param("i", $bookId);
+    //     $stmt->execute();
+    //     $result = $stmt->get_result();
+    //     return $result;
+    // }
+
+    // // Lấy thông tin người dùng từ bảng users dựa trên UserID
+    // public function getUserOfRv($userId) {
+    //     $query = "SELECT * FROM users WHERE UserID = '$userId'";
+    //     $stmt = $this->db->select($query);
+    //     $stmt->bind_param("i", $userId);
+    //     $stmt->execute();
+    //     $result = $stmt->get_result();
+    //     return $result;
+    // }
         
-      
     }
     
 ?>

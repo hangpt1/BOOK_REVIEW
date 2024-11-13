@@ -6,10 +6,10 @@
 <?php
 // Kiểm tra và lấy ID của sách và đánh giá (nếu có)
 if (isset($_GET['BookID'])) {
-    $id = $_GET['BookID'];
+    $BookID = $_GET['BookID'];
 }
 if (isset($_GET['ReviewID'])) {
-    $id = $_GET['ReviewID'];
+    $ReviewID = $_GET['ReviewID'];
 }
 
 // Khởi tạo biến để lưu kết quả sách
@@ -28,6 +28,10 @@ elseif (isset($_GET['star']) && !isset($_GET['Topic'])) {
 // Nếu không có bộ lọc nào được chọn, hiển thị tất cả sách
 else {
     $booksByFilter = $book->showBook();
+}
+if(isset($_GET['text'])){
+    $text = $_GET['text'];
+    $book_list = $book->showSearchByText($text);
 }
 
 ?> 
@@ -132,9 +136,50 @@ else {
                         ?>
                     </div>
                 </div>
+                <div class="col-4">
+                <div class="row py-1">
+                                <div class="card" style="width: 400px">
+                                <?php
+                                // TÌM ẢNH CỦA BOOK ĐƯỢC RV
+                                $rv = new Review();
+                                $rv_list = $rv->showReview_home();
+                                if($rv_list){
+                                    $i=$rv_list->num_rows;
+                                    while($result = $rv_list->fetch_assoc()){
+                                        $i--;
+                                ?>
+                                        <?php
+                                            $book_list = $book->showBook();
+                                            // Duyệt qua tất cả các topic để tìm topic phù hợp
+                                            while($book_result = $book_list->fetch_assoc()) {
+                                                if ($result['BookID'] == $book_result['BookID']){
+                                        ?>
+                                    <div class="card-body">
+                                        <h5 class="card-title"><?php echo $book_result['Bookname']?></h5>
+                                        <p style="overflow: hidden;text-overflow: ellipsis;display: -webkit-box;-webkit-line-clamp: 3;-webkit-box-orient: vertical;" class="card-title" class="card-text"><?php echo $result['Content']?></p>
+                                        <small><?php echo $result['Create_at']?></small><br>
+                                        <a href="bdetail.php?BookID=<?php echo $book_result['BookID']; ?>" class="btn btn-primary">Xem</a>
+                                    </div>
+                                    <?php
+                                                }
+                                            }
+                                            ?>
+                                    <?php
+                                                    
+                                                }
+                                            }
+                                        ?>
+
+                                    
+                                </div>
+                                
+
+                        </div>
+
+                </div>
             </div>
         </div>
-        <!-- <div class="col-1"></div> -->
+        
     </div>
 </div>
 

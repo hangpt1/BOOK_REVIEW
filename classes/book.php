@@ -176,11 +176,11 @@ include_once ($filepath . '/../helper/format.php');
 
         }
 
-        public function showBookByTopic($topic_id) {
-            $query = "SELECT * FROM books WHERE Topic = '$topic_id'";
-            $result = $this->db->select($query);
-            return $result;
-        }
+        // public function showBookByTopic($topic_id) {
+        //     $query = "SELECT * FROM books WHERE Topic = '$topic_id'";
+        //     $result = $this->db->select($query);
+        //     return $result;
+        // }
 
         public function showSearchByText($text) {
             // Thêm ký tự % vào trước và sau $text để tìm kiếm bất kỳ chuỗi nào chứa $text
