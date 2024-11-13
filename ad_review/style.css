@@ -9,7 +9,7 @@ body{
 }
 .container{
     display: grid;
-    height:585px;
+    height:100vh;
     grid-gap: 5px;    
     grid-template-columns: repeat(12, 1fr);
     grid-template-areas:
@@ -17,7 +17,7 @@ body{
 }
 .menu{
     grid-area: m;
-    height: 1000px;;
+    height: 100%;
     border-right: 0.5px solid gray;
     background-color: #253e66;
 }
