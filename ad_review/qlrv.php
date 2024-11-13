@@ -57,21 +57,15 @@
                     <td><?php echo $result['UserID'] ?></td>
                     <td><?php 
                         $book = new Book();
-                        $book_list = $book->showBook();
-
+                        $book_list = $book->getBookByID($result['BookID']); 
+                        // $book_list = $book->showBook();
                         $book_result = $book_list->fetch_assoc();
                         
                         if ($result['BookID'] ==$book_result['BookID']){
                             
                             echo $book_result['Bookname'];
                         }
-                        // Thay vì lấy tất cả sách, chỉ lấy một sách theo BookID
-                        // $book_result = $book->getBookById($result['BookID']); 
-
-                        // if ($book_result) {
-                        //     echo $book_result['Bookname'];
-                        // } else {
-                        //     echo "Không tìm thấy sách";
+                        
                             
                      ?></td>
                     <td><?php echo $fm->textShorten($result['Content'], 50) ?></td>

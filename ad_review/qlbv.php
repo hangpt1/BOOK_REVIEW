@@ -38,6 +38,7 @@
                     <th class="product-prop product-time">Năm xuất bản</th>
                     <th class="product-prop product-name">Nội dung</th>
                     <th class="product-prop product-button">Chủ đề</th>
+                    <th class="product-prop product-button">Số sao</th>
                     <th class="product-prop product-button">Xóa</th>
                     <th class="product-prop product-button">Sửa</th>
                 </tr>
@@ -70,6 +71,8 @@
                             }
                         }
                     ?></td>
+                    <td><?php echo $result['star'] ?></td>
+
                     <td><a href="book_edit.php?BookID=<?php echo $result['BookID']?>"><button class="btn">Sửa</button></a></td>
                     <td><a href="?BookID=<?php echo $result['BookID']?>"><button class="btn">Xóa</button></a></td>
                     

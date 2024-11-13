@@ -26,6 +26,7 @@ include_once ($filepath . '/../helper/format.php');
             $publishedYear = mysqli_real_escape_string($this->db->link, $data['publishedYear']);
             $description = mysqli_real_escape_string($this->db->link, $data['description']);
             $topic = mysqli_real_escape_string($this->db->link, $data['topic']);
+            $star = 0;
             // $created_at = mysqli_real_escape_string($this->db->link, $created_at);
             $permited = array('jpg', 'jpeg', 'png', 'gif');
             $file_name = $_FILES['bookImage']['name'];
@@ -36,6 +37,7 @@ include_once ($filepath . '/../helper/format.php');
             $file_ext = strtolower(end($div));
             $unique_image = substr(md5(time()), 0, 10).'.'.$file_ext;
             $upload_image = "uploads/".$unique_image;
+
             
             // Nếu người dùng bỏ trống
             if ($bookName ==""|| $author == ""|| $publishedYear == ""|| $description ==""|| $topic ==""|| $file_name ==""){
@@ -50,7 +52,7 @@ include_once ($filepath . '/../helper/format.php');
                 }
                 move_uploaded_file($file_temp, $upload_image);
                 // thêm vào scdl
-                $query = "INSERT INTO books(Bookname, Author, Published_year, De, Topic,Img_product) VALUES('$bookName', '$author', '$publishedYear', '$description','$topic', '$unique_image')";
+                $query = "INSERT INTO books(Bookname, Author, Published_year, De, Topic,Img_product, star) VALUES('$bookName', '$author', '$publishedYear', '$description','$topic', '$unique_image','$star')";
                 $result = $this->db->insert($query);
                 if($result){
                     $alert = "<span style='color:green;!important' class='success'>Thêm sách thành công</span>";
@@ -228,6 +230,20 @@ include_once ($filepath . '/../helper/format.php');
                       LEFT JOIN comment_rating AS cr ON r.ReviewID = cr.CommentID
                       WHERE cr.UserID IS NULL";
                       
+            $result = $this->db->select($query);
+            return $result;
+        }
+        // Lọc và Hiển Thị Sách Theo Số Sao Trung Bình
+
+        public function getBooksByStarRating($starRating) {
+            $query = "
+                SELECT b.*, ROUND(AVG(r.star), 1) AS average_star
+                FROM books AS b
+                JOIN reviews AS r ON b.BookID = r.BookID
+                WHERE r.Status = 'Đã duyệt'
+                GROUP BY b.BookID
+                HAVING average_star = '$starRating'
+                ORDER BY average_star DESC";
             $result = $this->db->select($query);
             return $result;
         }

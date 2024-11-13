@@ -22,6 +22,7 @@ include_once ($filepath . '/../helper/format.php');
             return $result;
         }
         public function showReview_home(){
+            // nếu mà được duyệt thì mới hiển thị lên home
             $query = "SELECT * FROM reviews WHERE Status = 'Đã duyệt' order by ReviewID desc";
             $result = $this->db->select($query);
             return $result;
@@ -60,36 +61,7 @@ include_once ($filepath . '/../helper/format.php');
             }
             return 1; // Nếu không có ReviewID nào, trả về 1
         }
-        // Hàm thêm review vào cơ sở dữ liệu
-        // public function addReview($userID,$bookID, $Create_at,$status, $data) {
-            
-        //     $userID = Session::get('UserID');
-        //     $star = mysqli_real_escape_string($this->db->link, $data['star']);
-        //     $reviewContent = mysqli_real_escape_string($this->db->link, $data['reviewContent']);
-        //     $status = 'Chưa duyệt';
-        //     // Nếu người dùng bỏ trống
-        //     if ($reviewContent ==""|| $star ==""){
-        //         $alert = "<span style='color:red;!important' class='success'>Bạn không được bỏ trống</span>";
-        //         return $alert . "<br>" . "<br>";
-        //     }else{
-        //         if (is_int($star) && $star <= 5 && $star >= 0) {
-        //             // $stars là số nguyên và nằm trong khoảng từ 0 đến 5
-        //             echo 'Stars là số nguyên và nằm trong khoảng từ 0 đến 5';
-        //         } else {
-        //             echo $star;
-        //         }
-        //         $query = "INSERT INTO reviews (UserID,BookID, Content, star, Create_at, Status) VALUES ('$userID','$bookID','$reviewContent','$star','$Create_at','$status')";
-        //         $result = $this->db->insert($query);
-        //         if($result){
-        //             $alert = "<span style='color:green;!important' class='success'>Đăng bài thành công</span>";
-        //             return $alert . "<br>" . "<br>";
-        //         }else{
-        //             $alert = "<span style='color:red;!important' class='success'>Đăng bài không thành công</span>";
-        //             return $alert . "<br>" . "<br>";
-        //         }
-        //     }
-            
-        // }
+    //    HÀM THÊM RV
         public function addReview($userID, $bookID, $Create_at, $status, $data) {
             // Lấy UserID từ session
             $userID = Session::get('UserID');
@@ -121,6 +93,31 @@ include_once ($filepath . '/../helper/format.php');
                     return "<span style='color:red;'>Số sao phải là số nguyên từ 0 đến 5</span><br><br>";
                 }
             }
+        }
+        // Hàm Tính Trung Bình Số Sao của Cuốn Sách
+        public function calculateAverageStar($bookID) {
+            // Tính số sao trung bình từ bảng đánh giá
+            $query = "
+                SELECT AVG(star) AS average_star 
+                FROM reviews 
+                WHERE BookID = '$bookID' AND Status = 'Đã duyệt'";
+                
+            $result = $this->db->select($query);
+            if ($result) {
+                $row = $result->fetch_assoc();
+                $averageStar = round($row['average_star'], 1); // Làm tròn đến 1 chữ số
+                
+                // Cập nhật giá trị số sao trung bình vào bảng sách
+                $updateQuery = "
+                    UPDATE books 
+                    SET average_star = '$averageStar' 
+                    WHERE BookID = '$bookID'";
+                
+                $this->db->update($updateQuery);
+                
+                return $averageStar; // Trả về giá trị trung bình
+            }
+            return 0; // Nếu không có đánh giá nào, trả về 0
         }
 
         

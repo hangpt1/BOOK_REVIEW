@@ -128,13 +128,7 @@ error_reporting(E_ALL);
                     
                     Dưới ngòi bút của Alex Rovira và Fernando Trías de Bes - hai nhà tư vấn tâm lý và tiếp thị hàng đầu thế giới đã có công trình nghiên cứu về thái độ, hành vi con người cũng như ước mong, niềm tin của họ đối với sự may mắn, dẫn đến thành công trong cuộc sống, xoay quanh 12 bí mật nhỏ, vừa kể chuyện, vừa trích dẫn châm ngôn triết lí những câu chuyện giản dị này có thể được áp dụng rất rộng rãi cho tất cả mọi người và có khả năng khích lệ tinh thần, thái độ sống một cách độc đáo.  </p>
                 
-                <!-- <div class="video-container">
-                    <h3>Video review (Nếu có)</h3>
-                    <video id="review-video" controls>
-                        <source src="path/to/video.mp4" type="video/mp4">
-                        Trình duyệt của bạn không hỗ trợ video.
-                    </video>
-                </div> -->
+                
             </div>
 
             <div class="comments-section">
